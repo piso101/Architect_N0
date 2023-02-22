@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;
-    public float rotateSpeed = 5;
-
-    private Vector3 offset;
-
-    void Start()
+    public GameObject target;
+    private float speedMod = 5.0f;
+    private Vector3 point;
+ 
+    void Start () 
     {
-        offset = transform.position - target.position;
+        point = target.transform.position;
+        transform.LookAt(point);
     }
-
-    void LateUpdate()
-    {
-        if (Input.GetMouseButton(0))
+ 
+    void Update () 
+    {        if (Input.GetMouseButton(0))
         {
-            float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
-            target.Rotate(0, horizontal, 0);
+            float horizontal = Input.GetAxis("Mouse X") * speedMod;
+            transform.RotateAround (target.transform.position, Vector3.up, horizontal);  
         }
 
-        transform.position = target.position + offset;
-        transform.LookAt(target);
+        
     }
 }
+
+
 
