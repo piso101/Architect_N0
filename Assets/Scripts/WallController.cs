@@ -26,7 +26,7 @@ public class WallController : MonoBehaviour
             }
             foreach (GameObject wall in nearbyWalls)
             {
-                if (Vector3.Distance (wall.transform.position, Camera.main.transform.position) > 7.5)
+                if ((Vector3.Distance (wall.transform.position, Camera.main.transform.position) > 7.5))
                 {
                 wall.GetComponent<Renderer>().enabled = true;
                 }
