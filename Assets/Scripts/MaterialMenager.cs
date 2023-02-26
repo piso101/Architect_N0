@@ -1,41 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class MaterialMenager : MonoBehaviour
 {
-    float timeithasstartedcountingfrom;
-    float startTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    Ray ray;
-    RaycastHit hit;
-    public int counthowlong =0;
-    // Update is called once per frame
+    float holdTime = 2f;
+    float heldDuration = 0f;
+
     void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hit, Mathf.Infinity))//tutaj trzeba bedzie dodac jeszcze ifa do czy posiada miotle w rekach
+        if (Input.GetMouseButton(0))
         {
-            
-            if(hit.transform.tag == "dirtywall"&&Input.GetMouseButton(0))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "dirtywall"&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled)
             {
-            
-            counthowlong++;
-            Debug.Log("czyszce"+counthowlong);
+                if (hit.collider.gameObject.tag == "dirtywall")
+                {
+                    heldDuration += Time.deltaTime;
+
+                    if (heldDuration >= holdTime)
+                    {
+                        hit.collider.gameObject.tag = "wall";
+                        UnityEngine.Debug.Log("Zmieniono tag na wall"+ hit.collider.gameObject.name);
+                    }
+                }
+                else
+                {
+                    heldDuration = 0f;
+                }
             }
         }
-        if((Input.GetMouseButton(0))&&(counthowlong>120)&&(Physics.Raycast(ray, out hit,Mathf.Infinity)))//tutaj trzeba bedzie dodac jeszcze ifa do czy posiada miotle w rekach
+        else
         {
-            if(hit.transform.tag =="dirtywall")
-            {
-            hit.transform.tag="wall";
-            counthowlong=0;
-            Debug.Log("wyczyszczone");
-            }
+            heldDuration = 0f;
         }
     }
 }
+
