@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MaterialMenager : MonoBehaviour
 {
-    float timetostartwashing;
+    float timeithasstartedcountingfrom;
     float startTime;
     // Start is called before the first frame update
     void Start()
@@ -13,24 +13,28 @@ public class MaterialMenager : MonoBehaviour
     }
     Ray ray;
     RaycastHit hit;
+    public int counthowlong =0;
     // Update is called once per frame
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out hit, Mathf.Infinity))//tutaj trzeba bedzie dodac jeszcze ifa do czy posiada miotle w rekach
         {
+            
             if(hit.transform.tag == "dirtywall"&&Input.GetMouseButton(0))
             {
-            startTime += Time.deltaTime;
-            Debug.Log("czyszce");
+            
+            counthowlong++;
+            Debug.Log("czyszce"+counthowlong);
             }
         }
-        if(Input.GetMouseButton(0)&&((startTime)>3f)&&Physics.Raycast(ray, out hit,Mathf.Infinity))//tutaj trzeba bedzie dodac jeszcze ifa do czy posiada miotle w rekach
+        if((Input.GetMouseButton(0))&&(counthowlong>120)&&(Physics.Raycast(ray, out hit,Mathf.Infinity)))//tutaj trzeba bedzie dodac jeszcze ifa do czy posiada miotle w rekach
         {
             if(hit.transform.tag =="dirtywall")
             {
-            //hit.transform.tag="wall";
-            Debug.Log("czyszce");
+            hit.transform.tag="wall";
+            counthowlong=0;
+            Debug.Log("wyczyszczone");
             }
         }
     }
