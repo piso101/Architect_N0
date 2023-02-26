@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - wall
+  - dirtywall
   layers:
   - Default
   - TransparentFX

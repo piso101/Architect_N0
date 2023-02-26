@@ -11,7 +11,6 @@ public class WallController : MonoBehaviour
     private List<GameObject> nearbyWalls = new List<GameObject>();
     void Update()
     {
-        
         CheckWalls();
     }
 
@@ -20,7 +19,7 @@ public class WallController : MonoBehaviour
         
         Collider[] colliders = Physics.OverlapSphere(transform.position, wallRadius);
         // Add any new walls to the nearbyWalls list
-            if (!nearbyWalls.Contains(GetComponent<Collider>().gameObject))
+            if (!(nearbyWalls.Contains(GetComponent<Collider>().gameObject))&&((GetComponent<Collider>().gameObject.tag =="wall")||GetComponent<Collider>().gameObject.tag =="dirtywall"))
             {
                 nearbyWalls.Add(GetComponent<Collider>().gameObject);
             }
@@ -40,10 +39,5 @@ public class WallController : MonoBehaviour
             }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, wallRadius);
-    }
 }
 
