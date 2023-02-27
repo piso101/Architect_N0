@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class MaterialMenager : MonoBehaviour
 {
+
     float holdTime = 2f;
     float heldDuration = 0f;
-
+    public Material Material1;
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -22,6 +23,11 @@ public class MaterialMenager : MonoBehaviour
                     if (heldDuration >= holdTime)
                     {
                         hit.collider.gameObject.tag = "wall";
+                                        Renderer renderer = hit.collider.GetComponent<Renderer>();
+                        if (renderer != null)
+                        {
+                            renderer.material = Material1;
+                        }
                         UnityEngine.Debug.Log("Zmieniono tag na wall"+ hit.collider.gameObject.name);
                     }
                 }
