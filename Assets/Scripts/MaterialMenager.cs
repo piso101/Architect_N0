@@ -3,10 +3,15 @@ using UnityEngine;
 
 public class MaterialMenager : MonoBehaviour
 {
-
+    private hub Hub;
     float holdTime = 2f;
     float heldDuration = 0f;
     public Material Material1;
+    void Start()
+    {
+        GameObject obj = GameObject.Find("Menager");
+        Hub = obj.GetComponent<hub>();
+    }
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -19,8 +24,8 @@ public class MaterialMenager : MonoBehaviour
                 if (hit.collider.gameObject.tag == "dirtywall")
                 {
                     heldDuration += Time.deltaTime;
-
-                    if (heldDuration >= holdTime)
+                    bool czyszczotka = Hub.szczotkajestwrece;
+                    if (heldDuration >= holdTime&&czyszczotka)
                     {
                         hit.collider.gameObject.tag = "wall";
                                         Renderer renderer = hit.collider.GetComponent<Renderer>();
@@ -28,7 +33,7 @@ public class MaterialMenager : MonoBehaviour
                         {
                             renderer.material = Material1;
                         }
-                        UnityEngine.Debug.Log("Zmieniono tag na wall"+ hit.collider.gameObject.name);
+                        //UnityEngine.Debug.Log("Zmieniono tag na wall"+ hit.collider.gameObject.name);
                     }
                 }
                 else
