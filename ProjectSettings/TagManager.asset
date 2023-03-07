@@ -7,6 +7,9 @@ TagManager:
   - wall
   - dirtywall
   - floor
+  - button
+  - slider
+  - imagescale
   layers:
   - Default
   - TransparentFX

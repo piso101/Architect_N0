@@ -7,41 +7,36 @@ using UnityEngine.UI;
 public class Broombutton : MonoBehaviour
 {
     private hub Hub;
-    public Button Buttonbtn;
-    public bool czyszczotka = false;    
+    public Button Buttonbtn;  
+    private Color btncolor;
     // Start is called before the first frame update
     void Start()
     {
-       Broombutton broombutton = new Broombutton();
         GameObject obj = GameObject.Find("Menager");
         Hub = obj.GetComponent<hub>();
-        broombutton.Buttonbtn = Buttonbtn;
+        btncolor=Hub.buttoncolor;       
     }
-
     // Update is called once per frame
     void Update()
     {
-        if(czyszczotka)
+        if(Hub.czykolorjestwrece)
         {
-        GameObject buttonObj = GameObject.FindGameObjectWithTag("Buttonbtn");
-        Buttonbtn.GetComponent<Image>().color = Color.blue;
+            Buttonbtn.GetComponent<RawImage>().color = Color.white;
+            Hub.szczotkajestwrece=false;
         }
-        else
-        {
 
-        }
     }
     public void TurnBroom()
     {
-        czyszczotka = Hub.szczotkajestwrece;
-        
-        if(czyszczotka)
+        if(Hub.szczotkajestwrece)
         {
+            Buttonbtn.GetComponent<RawImage>().color = Color.white;
             Hub.szczotkajestwrece=false;
         }
         else
         {
             Hub.szczotkajestwrece = true;
+            Buttonbtn.GetComponent<RawImage>().color = btncolor;
         }
     }
 }
