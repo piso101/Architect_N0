@@ -12,6 +12,14 @@ public class Colourpicker : MonoBehaviour
     public Vector3 skalaimage;
     public Vector3 skalaslider;
     public Vector3 skalamin;
+    public Slider Redslider;
+    public Slider Greenslider;
+    public Slider Blueslider;
+    public GameObject currentcolor;
+    //historiafarb:
+    public GameObject[] historiafarb;
+    private int licznikhistorii=0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +35,7 @@ public class Colourpicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(Hub.czykolorjestwrece&&!czysiepojawil)
         {
             czysiepojawil=true;
@@ -46,21 +55,48 @@ public class Colourpicker : MonoBehaviour
                 {
                     child.localScale = gameobject.transform.localScale;
                 }
-
-                
-
             }
-            
         }
         else if(!Hub.czykolorjestwrece&&czysiepojawil)
         {
+            if(Hub.czykolorzostalwybrany)
+            {
+                if(licznikhistorii==5)
+                {
+                    licznikhistorii=0;
+                }
+                
+            
+            RawImage colorraw = historiafarb[licznikhistorii].GetComponent<RawImage>();
+            if (colorraw != null&&Hub.paintcolor!=null) 
+            {
+                colorraw.color = Hub.paintcolor;
+            }
+                
+                licznikhistorii++;
+                Hub.czykolorzostalwybrany=false;
+            }
             czysiepojawil=false;
             Hub.nieruszajkamera=false;
             gameobject.transform.localScale = skalamin;
-                        foreach (Transform child in gameobject.transform)
+            foreach (Transform child in gameobject.transform)
             {
                 child.localScale = gameobject.transform.localScale;
             }
         }
+        
+
+
+    }
+    public void hassliderchanged()
+    {
+            Color newColor = new Color(Redslider.value / 255f, Greenslider.value / 255f, Blueslider.value / 255f);
+            Hub.paintcolor = newColor;
+            RawImage currentColorRawImage = currentcolor.GetComponent<RawImage>();
+            if (currentColorRawImage != null) 
+            {
+                currentColorRawImage.color = newColor;
+            }
+            Hub.czykolorzostalwybrany=true;
     }
 }
