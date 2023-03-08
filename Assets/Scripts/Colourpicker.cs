@@ -18,7 +18,9 @@ public class Colourpicker : MonoBehaviour
     public GameObject currentcolor;
     //historiafarb:
     public GameObject[] historiafarb;
+    public Color[] historiafarbkolory;
     private int licznikhistorii=0;
+    int ktoryprzycisk;
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +61,7 @@ public class Colourpicker : MonoBehaviour
         }
         else if(!Hub.czykolorjestwrece&&czysiepojawil)
         {
-            if(Hub.czykolorzostalwybrany)
+            if(Hub.czykolorzostalwybrany)//update historii colorow
             {
                 if(licznikhistorii==5)
                 {
@@ -70,11 +72,12 @@ public class Colourpicker : MonoBehaviour
             RawImage colorraw = historiafarb[licznikhistorii].GetComponent<RawImage>();
             if (colorraw != null&&Hub.paintcolor!=null) 
             {
+                historiafarbkolory[licznikhistorii]=Hub.paintcolor;
                 colorraw.color = Hub.paintcolor;
             }
                 
                 licznikhistorii++;
-                Hub.czykolorzostalwybrany=false;
+                //Hub.czykolorzostalwybrany=false;
             }
             czysiepojawil=false;
             Hub.nieruszajkamera=false;
@@ -84,9 +87,6 @@ public class Colourpicker : MonoBehaviour
                 child.localScale = gameobject.transform.localScale;
             }
         }
-        
-
-
     }
     public void hassliderchanged()
     {
@@ -98,5 +98,29 @@ public class Colourpicker : MonoBehaviour
                 currentColorRawImage.color = newColor;
             }
             Hub.czykolorzostalwybrany=true;
+    }
+    public void buttonisclicked(GameObject butoon)//pobieranie historii kolorow
+    {
+            RawImage buttonRawImage = butoon.GetComponent<RawImage>();
+            if (buttonRawImage != null) 
+            {
+                //showcasecolor
+                RawImage currentColorRawImage = currentcolor.GetComponent<RawImage>();
+                if (currentColorRawImage != null) 
+                {
+                currentColorRawImage.color = historiafarbkolory[ktoryprzycisk];
+                }
+                //globalcolor
+                Hub.paintcolor = historiafarbkolory[ktoryprzycisk];
+                //sliders
+                Redslider.value=(Hub.paintcolor.r*255f);
+                Greenslider.value=(Hub.paintcolor.g*255f);
+                Blueslider.value=(Hub.paintcolor.b*255f);
+                 Hub.czykolorzostalwybrany=true;
+            }
+    }
+    public void ktorykolorbracie(int i)
+    {
+        ktoryprzycisk=i;
     }
 }

@@ -234,6 +234,12 @@ MonoBehaviour:
   - {fileID: 2126378727}
   - {fileID: 1793089056}
   - {fileID: 2123584742}
+  historiafarbkolory:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &2552874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2507,7 +2513,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 969610086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: ktorykolorbracie
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: buttonisclicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 969610083}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &969610086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3576,7 +3606,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1562069061}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: ktorykolorbracie
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: buttonisclicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1562069058}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1562069061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3946,7 +4000,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1793089059}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: ktorykolorbracie
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: buttonisclicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1793089056}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1793089059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4455,7 +4533,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2123584745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: ktorykolorbracie
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: buttonisclicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2123584742}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2123584745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4573,7 +4675,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2126378730}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: ktorykolorbracie
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1666833}
+        m_TargetAssemblyTypeName: Colourpicker, Assembly-CSharp
+        m_MethodName: buttonisclicked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2126378727}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2126378730
 MonoBehaviour:
   m_ObjectHideFlags: 0
