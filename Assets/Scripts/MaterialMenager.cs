@@ -7,6 +7,7 @@ using System.ComponentModel.Design;
 using System.Net;
 using System.Diagnostics;
 using UnityEngine;
+using RDG;
 
 public class MaterialMenager : MonoBehaviour
 {
@@ -47,11 +48,13 @@ public class MaterialMenager : MonoBehaviour
                     
                         if(heldDuration==0&&czyszczotka)
                     {
+                        
                         movingcleaninganim.SetTargetObject(hit.collider.gameObject);
                         Hub.animszczotka = true;
                         Hub.animgombka = true;
 
                     }
+                    Vibration.Vibrate(20,250);
                     heldDuration += Time.deltaTime;
                     
                     if (heldDuration >= holdTime&&czyszczotka)
@@ -60,6 +63,7 @@ public class MaterialMenager : MonoBehaviour
                         Renderer renderer = hit.collider.GetComponent<Renderer>();
                         if (renderer != null)
                         {
+                            Vibration.Vibrate(100,150);
                             renderer.material = Material1;
                         }
                     }
@@ -82,13 +86,14 @@ public class MaterialMenager : MonoBehaviour
                         movingpainting.SetTargetObject(hit.collider.gameObject);
                     }
                     paintheldDuration += Time.deltaTime;
-                    
+                    Vibration.Vibrate(20,100);
                     if (paintheldDuration >= paintholdTime&&Hub.czykolorzostalwybrany)
                     {
                         Renderer renderer = hit.collider.GetComponent<Renderer>();
                         if (renderer != null)
                         {
                             renderer.material.color = Hub.paintcolor;
+                            Vibration.Vibrate(100,200);
                             
                         }
                     }

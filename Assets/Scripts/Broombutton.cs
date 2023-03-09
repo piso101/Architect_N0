@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RDG;
 
 
 public class Broombutton : MonoBehaviour
@@ -32,9 +33,11 @@ public class Broombutton : MonoBehaviour
         {
             Buttonbtn.GetComponent<RawImage>().color = Color.white;
             Hub.szczotkajestwrece=false;
+            Vibration.Vibrate(50, 150);
         }
         else
         {
+            Vibration.Vibrate(50, 150);
             Hub.szczotkajestwrece = true;
             Buttonbtn.GetComponent<RawImage>().color = btncolor;
         }

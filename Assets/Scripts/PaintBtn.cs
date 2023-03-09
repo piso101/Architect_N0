@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using RDG;
 
 public class PaintBtn : MonoBehaviour
 {
@@ -28,11 +29,13 @@ public class PaintBtn : MonoBehaviour
     {
         if(Hub.czykolorjestwrece)
         {
+            Vibration.Vibrate(50, 150);
             Paintbtn.GetComponent<RawImage>().color = Color.white;
             Hub.czykolorjestwrece = false;
         }
         else
         {
+            Vibration.Vibrate(50, 150);
             Paintbtn.GetComponent<RawImage>().color = btncolor;
             Hub.czykolorjestwrece = true;
         }

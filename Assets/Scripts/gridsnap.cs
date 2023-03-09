@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RDG;
 
 public class gridsnap : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class gridsnap : MonoBehaviour
                 podniesionyprzedmiot=hit.transform.gameObject;
                 hit.transform.position=hit.transform.position+podnoszeniemebli;
                 heldDuration = 0f;
+                Vibration.Vibrate(25, 200);
             }
             else if(heldDuration>=holdTime&&czyprzedmiotjestpodniesiony)
             {
@@ -39,6 +41,7 @@ public class gridsnap : MonoBehaviour
                 hit.transform.position=hit.transform.position-podnoszeniemebli;
                 podniesionyprzedmiot=null;
                 heldDuration = 0f;
+                Vibration.Vibrate(25, 200);
             }
         }
     }
@@ -70,7 +73,7 @@ public class gridsnap : MonoBehaviour
         // Move the object
         podniesionyprzedmiot.transform.position += wtomstronke;
         podniesionyprzedmiot.tag ="ruszam";
-
+        Vibration.Vibrate(25, 150);
         // Check for collisions
         Renderer objectRenderer = podniesionyprzedmiot.GetComponent<Renderer>();
         float radius = objectRenderer.bounds.size.magnitude / 3f;
@@ -80,6 +83,7 @@ public class gridsnap : MonoBehaviour
         {
             if (collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture")||collider.gameObject.CompareTag("dirtywall"))
             {
+                Vibration.Vibrate(100, 100);
                 podniesionyprzedmiot.transform.position-= wtomstronke;
             }
         }
@@ -89,13 +93,10 @@ public class gridsnap : MonoBehaviour
     public void obracajmnie()
 {
     Vector3 wtomstronke = new Vector3(0f, 0f, 90f);
-
-    // Rotate the object
     Quaternion rotation = Quaternion.Euler(wtomstronke);
     podniesionyprzedmiot.transform.rotation *= rotation;
     podniesionyprzedmiot.tag = "ruszam";
-
-    // Check for collisions
+    Vibration.Vibrate(25, 150);
     Renderer objectRenderer = podniesionyprzedmiot.GetComponent<Renderer>();
     float radius = objectRenderer.bounds.size.magnitude / 3f;
     Vector3 center = podniesionyprzedmiot.transform.position;
@@ -104,7 +105,8 @@ public class gridsnap : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture")||collider.gameObject.CompareTag("dirtywall"))
         {
-            // Rotate the object back if there is a collision
+            
+            Vibration.Vibrate(100, 100);
             podniesionyprzedmiot.transform.rotation *= Quaternion.Euler(-wtomstronke);
         }
     }
@@ -117,6 +119,7 @@ public class gridsnap : MonoBehaviour
                 czyprzedmiotjestpodniesiony = false;
                 podniesionyprzedmiot=null;
                 heldDuration = 0f;
+                Vibration.Vibrate(100, 250);
     }
 
 
