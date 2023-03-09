@@ -15,6 +15,8 @@ public class hub : MonoBehaviour
     public Color paintcolor;
     public bool czykolorzostalwybrany=false;//zmienjaknaprawiszcolorpicker
     public bool nieruszajkamera=false;
+    //movingobjects
+    public bool przyciskidoruszania=false;
     //inne
     public Color buttoncolor;
     void Start()

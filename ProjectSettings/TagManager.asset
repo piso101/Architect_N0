@@ -10,6 +10,8 @@ TagManager:
   - button
   - slider
   - imagescale
+  - furniture
+  - ruszam
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - wall
   - Water
   - UI
-  - 
-  - 
+  - furniture
+  - floor
   - 
   - 
   - 
