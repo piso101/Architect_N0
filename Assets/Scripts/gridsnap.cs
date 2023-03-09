@@ -86,7 +86,7 @@ public class gridsnap : MonoBehaviour
         podniesionyprzedmiot.tag ="furniture";
     
     }
-public void obracajmnie()
+    public void obracajmnie()
 {
     Vector3 wtomstronke = new Vector3(0f, 0f, 90f);
 
@@ -110,5 +110,14 @@ public void obracajmnie()
     }
     podniesionyprzedmiot.tag = "furniture";
 }
+    public void usungo()
+    {
+                Destroy(podniesionyprzedmiot);
+                Hub.przyciskidoruszania=false;
+                czyprzedmiotjestpodniesiony = false;
+                podniesionyprzedmiot=null;
+                heldDuration = 0f;
+    }
+
 
 }
