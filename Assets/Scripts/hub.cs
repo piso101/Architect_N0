@@ -13,6 +13,7 @@ public class hub : MonoBehaviour
     public bool animmalowanie=false;
     public bool czykolorjestwrece=false;
     public Color paintcolor;
+    public bool malowac=false;
     public bool czykolorzostalwybrany=false;//zmienjaknaprawiszcolorpicker
     public bool nieruszajkamera=false;
     //movingobjects

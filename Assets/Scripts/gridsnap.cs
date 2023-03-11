@@ -25,20 +25,20 @@ public class gridsnap : MonoBehaviour
         if((Physics.Raycast(ray, out hit))&&hit.collider.gameObject.tag == furnituretag&&Input.GetMouseButton(0))
         {
             heldDuration +=Time.deltaTime;
-            if(heldDuration>=holdTime&&!czyprzedmiotjestpodniesiony)
+            if(heldDuration>=holdTime&&!czyprzedmiotjestpodniesiony&&podniesionyprzedmiot==null)
             {
                 Hub.przyciskidoruszania=true;
                 czyprzedmiotjestpodniesiony = true;
                 podniesionyprzedmiot=hit.transform.gameObject;
-                hit.transform.position=hit.transform.position+podnoszeniemebli;
+                podniesionyprzedmiot.transform.position=podniesionyprzedmiot.transform.position+podnoszeniemebli;
                 heldDuration = 0f;
                 Vibration.Vibrate(25, 200);
             }
-            else if(heldDuration>=holdTime&&czyprzedmiotjestpodniesiony)
+            else if(heldDuration>=holdTime&&czyprzedmiotjestpodniesiony&&podniesionyprzedmiot!=null)
             {
                 Hub.przyciskidoruszania=false;
                 czyprzedmiotjestpodniesiony = false;
-                hit.transform.position=hit.transform.position-podnoszeniemebli;
+                podniesionyprzedmiot.transform.position=podniesionyprzedmiot.transform.position-podnoszeniemebli;
                 podniesionyprzedmiot=null;
                 heldDuration = 0f;
                 Vibration.Vibrate(25, 200);

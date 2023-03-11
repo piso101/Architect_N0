@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RDG;
 
 public class Zoomwithtwofingers : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class Zoomwithtwofingers : MonoBehaviour
     {
         if (Input.touchCount == 2&&!Hub.nieruszajkamera)
         {
+            Vibration.Vibrate(25,100);
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 

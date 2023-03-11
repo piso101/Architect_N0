@@ -48,13 +48,13 @@ public class MaterialMenager : MonoBehaviour
                     
                         if(heldDuration==0&&czyszczotka)
                     {
-                        
+                        Vibration.Vibrate(100,250);
                         movingcleaninganim.SetTargetObject(hit.collider.gameObject);
                         Hub.animszczotka = true;
                         Hub.animgombka = true;
 
                     }
-                    Vibration.Vibrate(20,250);
+                    
                     heldDuration += Time.deltaTime;
                     
                     if (heldDuration >= holdTime&&czyszczotka)
@@ -76,13 +76,13 @@ public class MaterialMenager : MonoBehaviour
                         movingcleaninganim.SetTargetObject(movewhenanimoff);
                 }
             }//malowanie sciany////////////////////////////////////////////////////////////////////////////////////
-            else if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "wall"&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled)
+            else if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "wall"&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled&&Hub.malowac)
             {
                 if (hit.collider.gameObject.tag == "wall")
                 {
                         if(paintheldDuration==0&&Hub.czykolorzostalwybrany&&!Hub.animszczotka&&!Hub.animgombka)
                     {
-                        Hub.animmalowanie = true; 
+                        Hub.animmalowanie = true; //
                         movingpainting.SetTargetObject(hit.collider.gameObject);
                     }
                     paintheldDuration += Time.deltaTime;

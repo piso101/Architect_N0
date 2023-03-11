@@ -9,6 +9,7 @@ public class PaintBtn : MonoBehaviour
     private hub Hub;
     public Button Paintbtn;
     private Color btncolor;
+    int licznik=3;
     void Start()
     {
         GameObject obj = GameObject.Find("Menager");
@@ -27,17 +28,32 @@ public class PaintBtn : MonoBehaviour
     }
     public void turnpaint()
     {
-        if(Hub.czykolorjestwrece)
+        
+        switch(licznik)
         {
+            case(1):
             Vibration.Vibrate(50, 150);
             Paintbtn.GetComponent<RawImage>().color = Color.white;
             Hub.czykolorjestwrece = false;
-        }
-        else
-        {
+            Hub.malowac=false;
+            licznik=3;
+            break;
+        
+            case(2):
             Vibration.Vibrate(50, 150);
             Paintbtn.GetComponent<RawImage>().color = btncolor;
-            Hub.czykolorjestwrece = true;
+            Hub.czykolorjestwrece = false;//pokazuje colorpicker
+            Hub.malowac=true;
+            licznik=1;
+            break;
+        
+            case(3):
+            Vibration.Vibrate(50, 150);
+            Paintbtn.GetComponent<RawImage>().color = btncolor;
+            Hub.czykolorjestwrece = true;//pokazuje colorpicker
+            Hub.malowac=true;
+            licznik=2;
+            break;
         }
     }
 }
