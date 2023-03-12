@@ -12,6 +12,7 @@ TagManager:
   - imagescale
   - furniture
   - ruszam
+  - wallaleniemaluj
   layers:
   - Default
   - TransparentFX

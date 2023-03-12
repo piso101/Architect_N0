@@ -92,7 +92,7 @@ public class gridsnap : MonoBehaviour
     }
     public void obracajmnie()
 {
-    Vector3 wtomstronke = new Vector3(0f, 0f, 90f);
+    Vector3 wtomstronke = new Vector3(0f, 0f, 45f);
     Quaternion rotation = Quaternion.Euler(wtomstronke);
     podniesionyprzedmiot.transform.rotation *= rotation;
     podniesionyprzedmiot.tag = "ruszam";

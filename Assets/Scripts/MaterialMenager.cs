@@ -20,6 +20,7 @@ public class MaterialMenager : MonoBehaviour
     //
     float paintholdTime = 2f;
     float paintheldDuration = 0f;
+    GameObject tenmalujeteraz;
     //
     public Material Material1;
     private scriptanimationgombka Scriptanimationgombka;
@@ -80,22 +81,35 @@ public class MaterialMenager : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == "wall")
                 {
-                        if(paintheldDuration==0&&Hub.czykolorzostalwybrany&&!Hub.animszczotka&&!Hub.animgombka)
+                    if(paintheldDuration==0&&Hub.czykolorzostalwybrany&&!Hub.animszczotka&&!Hub.animgombka)
                     {
+                        tenmalujeteraz = hit.transform.gameObject;
                         Hub.animmalowanie = true; //
                         movingpainting.SetTargetObject(hit.collider.gameObject);
                     }
-                    paintheldDuration += Time.deltaTime;
-                    Vibration.Vibrate(20,100);
-                    if (paintheldDuration >= paintholdTime&&Hub.czykolorzostalwybrany)
+                    else if (paintheldDuration >= paintholdTime&&Hub.czykolorzostalwybrany&&hit.transform.gameObject==tenmalujeteraz)
                     {
                         Renderer renderer = hit.collider.GetComponent<Renderer>();
                         if (renderer != null)
                         {
                             renderer.material.color = Hub.paintcolor;
                             Vibration.Vibrate(100,200);
+                            paintheldDuration = 0f;
+                            Hub.animmalowanie = false; 
+                            movingpainting.SetTargetObject(movewhenanimoff);
                             
                         }
+                    }
+                    else if(!(hit.transform.gameObject==tenmalujeteraz))
+                    {
+                    paintheldDuration = 0f;
+                    Hub.animmalowanie = false; 
+                    movingpainting.SetTargetObject(movewhenanimoff);
+                    }
+                    if(paintheldDuration>=0&&Hub.czykolorzostalwybrany&&hit.transform.gameObject==tenmalujeteraz)
+                    {
+                    paintheldDuration += Time.deltaTime;
+                    Vibration.Vibrate(20,100);
                     }
                 }
                 else
@@ -104,6 +118,16 @@ public class MaterialMenager : MonoBehaviour
                     Hub.animmalowanie = false; 
                     movingpainting.SetTargetObject(movewhenanimoff);
                 }
+            }
+            else
+            {
+            movingpainting.SetTargetObject(movewhenanimoff);
+            movingcleaninganim.SetTargetObject(movewhenanimoff);
+            Hub.animmalowanie = false; 
+            Hub.animszczotka = false;
+            Hub.animgombka = false;
+            heldDuration = 0f;
+            paintheldDuration=0f;
             }
         }
         else
