@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class hub : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class hub : MonoBehaviour
     public bool przyciskidoruszania=false;
     //inne
     public Color buttoncolor;
+    public double money=0;
+    public TextMeshProUGUI moneyamount;
     void Start()
     {
 
@@ -28,6 +31,7 @@ public class hub : MonoBehaviour
     void Update() 
     {
 
+        moneyamount.text=(money/36).ToString("F1")+"$";
     }
 }
 

@@ -28,32 +28,34 @@ public class PaintBtn : MonoBehaviour
     }
     public void turnpaint()
     {
-        
-        switch(licznik)
+        if(Hub.przyciskidoruszania)
         {
-            case(1):
-            Vibration.Vibrate(50, 150);
-            Paintbtn.GetComponent<RawImage>().color = Color.white;
-            Hub.czykolorjestwrece = false;
-            Hub.malowac=false;
-            licznik=3;
-            break;
-        
-            case(2):
-            Vibration.Vibrate(50, 150);
-            Paintbtn.GetComponent<RawImage>().color = btncolor;
-            Hub.czykolorjestwrece = false;//pokazuje colorpicker
-            Hub.malowac=true;
-            licznik=1;
-            break;
-        
-            case(3):
-            Vibration.Vibrate(50, 150);
-            Paintbtn.GetComponent<RawImage>().color = btncolor;
-            Hub.czykolorjestwrece = true;//pokazuje colorpicker
-            Hub.malowac=true;
-            licznik=2;
-            break;
+            switch(licznik)
+            {
+                case(1):
+                Vibration.Vibrate(50, 150);
+                Paintbtn.GetComponent<RawImage>().color = Color.white;
+                Hub.czykolorjestwrece = false;
+                Hub.malowac=false;
+                licznik=3;
+                break;
+            
+                case(2):
+                Vibration.Vibrate(50, 150);
+                Paintbtn.GetComponent<RawImage>().color = btncolor;
+                Hub.czykolorjestwrece = false;//pokazuje colorpicker
+                Hub.malowac=true;
+                licznik=1;
+                break;
+            
+                case(3):
+                Vibration.Vibrate(50, 150);
+                Paintbtn.GetComponent<RawImage>().color = btncolor;
+                Hub.czykolorjestwrece = true;//pokazuje colorpicker
+                Hub.malowac=true;
+                licznik=2;
+                break;
+            }
         }
     }
 }

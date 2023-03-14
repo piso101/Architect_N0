@@ -77,7 +77,7 @@ public class MaterialMenager : MonoBehaviour
                         movingcleaninganim.SetTargetObject(movewhenanimoff);
                 }
             }//malowanie sciany////////////////////////////////////////////////////////////////////////////////////
-            else if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "wall"&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled&&Hub.malowac)
+            else if (Physics.Raycast(ray, out hit)&&(hit.collider.gameObject.tag == "wall"||hit.collider.gameObject.tag == "floor")&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled&&Hub.malowac)
             {
                 if (hit.collider.gameObject.tag == "wall")
                 {
@@ -104,6 +104,37 @@ public class MaterialMenager : MonoBehaviour
                     {
                     paintheldDuration = 0f;
                     Hub.animmalowanie = false; 
+                    movingpainting.SetTargetObject(movewhenanimoff);
+                    }
+                    if(paintheldDuration>=0&&Hub.czykolorzostalwybrany&&hit.transform.gameObject==tenmalujeteraz)
+                    {
+                    paintheldDuration += Time.deltaTime;
+                    Vibration.Vibrate(20,100);
+                    }
+                }
+                else if(hit.collider.gameObject.tag == "floor")
+                {
+                    if(paintheldDuration==0&&Hub.czykolorzostalwybrany&&!Hub.animszczotka&&!Hub.animgombka)
+                    {
+                        tenmalujeteraz = hit.transform.gameObject;
+                        
+                        
+                    }
+                    else if (paintheldDuration >= paintholdTime&&Hub.czykolorzostalwybrany&&hit.transform.gameObject==tenmalujeteraz)
+                    {
+                        Renderer renderer = hit.collider.GetComponent<Renderer>();
+                        if (renderer != null)
+                        {
+                            renderer.material.color = Hub.paintcolor;
+                            Vibration.Vibrate(100,200);
+                            paintheldDuration = 0f;
+                            movingpainting.SetTargetObject(movewhenanimoff);
+                            
+                        }
+                    }
+                    else if(!(hit.transform.gameObject==tenmalujeteraz))
+                    {
+                    paintheldDuration = 0f;
                     movingpainting.SetTargetObject(movewhenanimoff);
                     }
                     if(paintheldDuration>=0&&Hub.czykolorzostalwybrany&&hit.transform.gameObject==tenmalujeteraz)

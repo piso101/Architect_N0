@@ -10,7 +10,10 @@ public class Movepicker : MonoBehaviour
     public GameObject gameobject;
     public Vector3 skalamax;
     public Vector3 skalaimage;
+    public Vector3 skalascore;
     public Vector3 skalamin;
+    //public gameObject wyswietlaczstatystyk;
+    public Vector3 rotacjastatystyk;
     //historiafarb:
 
     // Start is called before the first frame update
@@ -39,6 +42,10 @@ public class Movepicker : MonoBehaviour
                 if(child.gameObject.tag=="imagescale")
                 {
                     child.localScale = skalaimage;
+                }
+                else if (child.gameObject.tag=="scorescale")
+                {
+                    child.localScale = skalascore;
                 }
                 else
                 {

@@ -13,6 +13,7 @@ TagManager:
   - furniture
   - ruszam
   - wallaleniemaluj
+  - scorescale
   layers:
   - Default
   - TransparentFX
