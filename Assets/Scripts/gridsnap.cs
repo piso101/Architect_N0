@@ -6,7 +6,7 @@ using TMPro;
 
 public class gridsnap : MonoBehaviour
 {
-    
+
     public string furnituretag;
     public Vector3 podnoszeniemebli;
     float holdTime = 0.5f;
@@ -14,15 +14,22 @@ public class gridsnap : MonoBehaviour
     bool czyprzedmiotjestpodniesiony=false;
     public GameObject podniesionyprzedmiot;
     private hub Hub;
-    
+    public int polozeniekamery;
+    public GameObject kamera;
     public TextMeshProUGUI textnazwaobiektu;
     public TextMeshProUGUI textlevelobiektu;
     public TextMeshProUGUI textzarobekobiekku;
+    public float wartoscyrotacjikamery=0f;
+    public float poczatkowawartosckamery;
+    public float odejmowanieodrotacjikamery=0f;
+    public Vector3 wtomstronke;
 
     void Start()
     {
         GameObject obj = GameObject.Find("Menager");
         Hub = obj.GetComponent<hub>();
+        poczatkowawartosckamery = kamera.transform.rotation.y;
+        
     }
     void Update()
     {
@@ -39,6 +46,7 @@ public class gridsnap : MonoBehaviour
                 podniesionyprzedmiot.transform.position=podniesionyprzedmiot.transform.position+podnoszeniemebli;
                 heldDuration = 0f;
                 Vibration.Vibrate(25, 200);
+                
                 Statystykimebla statystykimebla = podniesionyprzedmiot.GetComponent<Statystykimebla>();
                 
                 textlevelobiektu.text=statystykimebla.rzadkoscprzedmiotu.ToString();
@@ -60,6 +68,30 @@ public class gridsnap : MonoBehaviour
                 Vibration.Vibrate(25, 200);
             }
         }
+        //polozenie kamery
+
+        wartoscyrotacjikamery = kamera.transform.rotation.y-poczatkowawartosckamery-odejmowanieodrotacjikamery;
+        if(wartoscyrotacjikamery>=0f&&wartoscyrotacjikamery<=90f)
+        {
+            polozeniekamery=1;
+            
+        }
+        else if(wartoscyrotacjikamery>90f&&wartoscyrotacjikamery<=180f)
+        {
+            polozeniekamery=2;
+        }
+        else if(wartoscyrotacjikamery>180f&&wartoscyrotacjikamery<=270f)
+        {
+            polozeniekamery=3;
+        }
+        else if(wartoscyrotacjikamery>270f&&wartoscyrotacjikamery<=360f)
+        {
+            odejmowanieodrotacjikamery=360f;
+            polozeniekamery=4;
+        }
+
+        
+
       }
     
     float iksint;
@@ -68,20 +100,68 @@ public class gridsnap : MonoBehaviour
         iksint =i;
     }
     float igryk;
-        public void igrek(float i)
+    public void igrek(float i)
     {
         igryk =i;
     }
     float zet;
-        public void zent(float i)
+    public void zent(float i)
     {
         zet =i;
     }
-    public void polaczdoruszania()
+    bool wartoscdopowtarzaniaprzycisku;
+    int licz =0;
+    bool policzone=false;
+    public void zmien(bool zmien)
     {
-        Vector3 wtomstronke = new Vector3(iksint, igryk, zet);
-        ruszaj(wtomstronke);
+        wartoscdopowtarzaniaprzycisku=zmien;
     }
+        private void FixedUpdate() 
+        {
+            switch(polozeniekamery)
+            {
+                case 1:
+                {
+                    wtomstronke = new Vector3(iksint, igryk, zet);
+                    break;
+                }
+                case 2:
+                {
+                    wtomstronke = new Vector3(zet, igryk, iksint);
+                    break;
+                }
+                case 3:
+                {
+                    wtomstronke = new Vector3(-iksint, igryk, -zet);
+                    break;
+                }
+                case 4:
+                {
+                    wtomstronke = new Vector3(-zet, igryk, -iksint);
+                    break;
+                }
+
+            }
+            if((wartoscdopowtarzaniaprzycisku)&&(policzone))
+            {
+            ruszaj(wtomstronke);
+            policzone= false;
+            }
+            else if((wartoscdopowtarzaniaprzycisku)&&(!policzone))
+            {
+                if(licz<20)
+                {
+                    licz++;
+                }
+                else 
+                {
+                    licz=20;
+                    policzone=true;
+                }
+            }
+        
+        }
+
     
     public void ruszaj(Vector3 wtomstronke)
     {
@@ -116,7 +196,7 @@ public class gridsnap : MonoBehaviour
     public void obracajmnie()
     {
         //Rotating Object
-        Vector3 wtomstronke = new Vector3(0f, 0f, 45f);
+        Vector3 wtomstronke = new Vector3(0f, 0f, 90f);
         Quaternion rotation = Quaternion.Euler(wtomstronke);
         podniesionyprzedmiot.transform.rotation *= rotation;
         podniesionyprzedmiot.tag = "ruszam";
@@ -124,7 +204,7 @@ public class gridsnap : MonoBehaviour
         //creating colliderbox
         Statystykimebla statystykimebla = podniesionyprzedmiot.GetComponent<Statystykimebla>();
         Renderer objectRenderer = podniesionyprzedmiot.GetComponent<Renderer>();
-        Vector3 size = (objectRenderer.bounds.size / 3f)*statystykimebla.sizemultiplyier;
+        Vector3 size = (objectRenderer.bounds.size / 2.5f)*statystykimebla.sizemultiplyier;
         Vector3 center = podniesionyprzedmiot.transform.position;
         Quaternion rotationcube = podniesionyprzedmiot.transform.rotation;
         rotation *= Quaternion.Euler(statystykimebla.rotationaplly);

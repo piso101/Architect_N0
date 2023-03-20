@@ -20,9 +20,12 @@ public class hub : MonoBehaviour
     //movingobjects
     public bool przyciskidoruszania=false;
     //inne
+    public int level=1;
     public Color buttoncolor;
     public double money=0;
     public TextMeshProUGUI moneyamount;
+    public TextMeshProUGUI moneyamoutskilltree;
+    public TextMeshProUGUI moneyshop;
     void Start()
     {
 
@@ -31,7 +34,9 @@ public class hub : MonoBehaviour
     void Update() 
     {
 
-        moneyamount.text=(money/36).ToString("F1")+"$";
+        moneyamount.text=(money).ToString("F1")+"$";
+        moneyamoutskilltree.text=(money).ToString("F1")+"$";
+        moneyshop.text=(money).ToString("F1")+"$";
     }
 }
 

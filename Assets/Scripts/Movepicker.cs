@@ -12,11 +12,8 @@ public class Movepicker : MonoBehaviour
     public Vector3 skalaimage;
     public Vector3 skalascore;
     public Vector3 skalamin;
-    //public gameObject wyswietlaczstatystyk;
     public Vector3 rotacjastatystyk;
-    //historiafarb:
 
-    // Start is called before the first frame update
     void Start()
     {
         GameObject obj = GameObject.Find("Menager");
@@ -28,7 +25,7 @@ public class Movepicker : MonoBehaviour
             }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 

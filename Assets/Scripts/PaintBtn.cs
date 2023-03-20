@@ -28,7 +28,7 @@ public class PaintBtn : MonoBehaviour
     }
     public void turnpaint()
     {
-        if(Hub.przyciskidoruszania)
+        if(!Hub.przyciskidoruszania)
         {
             switch(licznik)
             {
