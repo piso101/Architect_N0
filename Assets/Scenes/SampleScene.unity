@@ -3498,6 +3498,9 @@ MonoBehaviour:
   moneyamount: {fileID: 214425551}
   moneyamoutskilltree: {fileID: 1339580265}
   moneyshop: {fileID: 2129180729}
+  spawnujtak: 0
+  obiekspawnowania: {fileID: 0}
+  levelporzebny: 0
 --- !u!114 &410392267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8471,7 +8474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18921bada4b4702418334cedded612da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: {fileID: 0}
+  objects: {fileID: 141067385}
   imageofbuttonwithobject: {fileID: 21300000, guid: f51bce55511551545b937dbe68f72e0e, type: 3}
   imagetochangewhenudonthavelevel: {fileID: 21300000, guid: 801cf1fe9860de4478acc5e5dc07ab1b, type: 3}
   image: {fileID: 51949632}
@@ -8483,6 +8486,7 @@ MonoBehaviour:
   textofvalue: {fileID: 263341295}
   Textoflevel: {fileID: 835606579}
   Textofearnings: {fileID: 1433003105}
+  czydraguje: 0
 --- !u!114 &1510289651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8540,7 +8544,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1510289650}
           m_TargetAssemblyTypeName: shopgameobjectbtn, Assembly-CSharp
-          m_MethodName: callwhendragged
+          m_MethodName: takdraguje
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

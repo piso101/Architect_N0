@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using RDG;
 
 
 public class shopgameobjectbtn : MonoBehaviour
@@ -21,6 +22,7 @@ public class shopgameobjectbtn : MonoBehaviour
     public TextMeshProUGUI Textofearnings;
     private hub Hub;
     private canvaschanger Canvaschanger;
+    public bool czydraguje;
     
     // Start is called before the first frame update
     void Start()
@@ -75,8 +77,13 @@ public class shopgameobjectbtn : MonoBehaviour
         textofvalue.text="";
         Textofearnings.text="";
     }
-    public void callwhendragged()
+    public void takdraguje()
     {
-        Canvaschanger.switchtodefaultcanvas();
+        
+        Hub.obiekspawnowania = objects;
+        Hub.levelporzebny = levelrequired;
+        Hub.spawnujtak = true;
+        
     }
+
 }
