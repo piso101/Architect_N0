@@ -82,6 +82,7 @@ public class shopgameobjectbtn : MonoBehaviour
         
         Hub.obiekspawnowania = objects;
         Hub.levelporzebny = levelrequired;
+        Hub.cenaobiektu = value;
         Hub.spawnujtak = true;
         
     }

@@ -21,7 +21,8 @@ public class Statystykimebla : MonoBehaviour
         
         if(czymebeljestaktywny==true)
         {
-            Hub.money+=(rzadkoscprzedmiotu);
+
+                Hub.money+=rzadkoscprzedmiotu*0.028;
         }
         
     }

@@ -330,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 3451118302482216456, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 7339129499576685385, guid: 57f7e6aba40aba145a36a1c856926da4, type: 3}
+      objectReference: {fileID: 7483352039260958482, guid: 44bb58ca87a3f7745ac6598af96ef0b9, type: 3}
     - target: {fileID: 3451118302482216456, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -683,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9e9e952511c0f745adff67a3560e566, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: sceneria
       objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: d9e9e952511c0f745adff67a3560e566, type: 3}
       propertyPath: m_Convex
@@ -1298,6 +1298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
 --- !u!1 &125001138
@@ -1332,7 +1336,7 @@ Transform:
   - {fileID: 664946671}
   - {fileID: 1895102354}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &125001140
 MonoBehaviour:
@@ -1439,10 +1443,10 @@ PrefabInstance:
     - target: {fileID: 3451118302482216456, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 7339129499576685385, guid: 57f7e6aba40aba145a36a1c856926da4, type: 3}
+      objectReference: {fileID: 5917123115340511274, guid: cac2216ee309d804eac9b9f429737422, type: 3}
     - target: {fileID: 3451118302482216456, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
@@ -1479,7 +1483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd59fdd8002cfb94e882964e43fe09ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.3735242
+      value: 98.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fd59fdd8002cfb94e882964e43fe09ed, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1542,7 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rzadkoscprzedmiotu: 1
   nazwaobiektu: Steve Bed
-  czymebeljestaktywny: 1
+  czymebeljestaktywny: 0
   sizemultiplyier: 2.2
   rotationaplly: {x: 0, y: 0, z: 90}
 --- !u!1 &165585583
@@ -1732,6 +1736,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
       propertyPath: m_Name
       value: chmurka (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
@@ -2132,6 +2140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wellisland (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6534e9fe0f390e847bca95f18ea2be82, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6534e9fe0f390e847bca95f18ea2be82, type: 3}
 --- !u!1 &259715463
@@ -2366,7 +2378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 42b830ae23a996d43a3f03bcef3f2615, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: sceneria
       objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: 42b830ae23a996d43a3f03bcef3f2615, type: 3}
       propertyPath: m_Convex
@@ -2729,6 +2741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
 --- !u!1 &333630083
@@ -2985,11 +3001,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c814e1a1d855f04db60ead83c9cf62f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0005701086
+      value: -0.00057
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c814e1a1d855f04db60ead83c9cf62f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0008497302
+      value: 0.0027
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2c814e1a1d855f04db60ead83c9cf62f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3114,7 +3130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 29257d37edb393e428caf974e33ca2a8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: sceneria
       objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: 29257d37edb393e428caf974e33ca2a8, type: 3}
       propertyPath: m_Convex
@@ -3494,13 +3510,14 @@ MonoBehaviour:
   przyciskidoruszania: 0
   level: 1
   buttoncolor: {r: 0.6280913, g: 0.990566, b: 0.50151294, a: 1}
-  money: 1000000
+  money: 112000
   moneyamount: {fileID: 214425551}
   moneyamoutskilltree: {fileID: 1339580265}
   moneyshop: {fileID: 2129180729}
   spawnujtak: 0
   obiekspawnowania: {fileID: 0}
   levelporzebny: 0
+  cenaobiektu: 0
 --- !u!114 &410392267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3732,6 +3749,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
       propertyPath: m_Name
       value: chmurka (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
@@ -4097,6 +4118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
 --- !u!1001 &664946670
@@ -4290,6 +4315,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
 --- !u!1 &697021969
@@ -4396,17 +4425,17 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9579843, b: 0.84339625, a: 1}
-  m_Intensity: 0.79
+  m_Color: {r: 1, g: 0.8746069, b: 0.54402506, a: 1}
+  m_Intensity: 0.88
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 31.27
+  m_CookieSize: 32.57
   m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
+    m_Type: 1
+    m_Resolution: 3
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.7
     m_Bias: 0
     m_NormalBias: 0.48
     m_NearPlane: 0.1
@@ -4434,12 +4463,12 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 251
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -4455,7 +4484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.11, y: 2.86, z: 1.52}
+  m_LocalPosition: {x: -0.11, y: 9.57, z: 1.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4682,6 +4711,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
       propertyPath: m_Name
       value: chmurka2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
@@ -5883,6 +5916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
 --- !u!1001 &894834160
@@ -5951,6 +5988,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
       propertyPath: m_Name
       value: chmurka (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
@@ -6330,6 +6371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
 --- !u!1 &1039389134
@@ -6365,7 +6410,7 @@ Transform:
   - {fileID: 786144253}
   - {fileID: 1254487612}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1039389136
 MonoBehaviour:
@@ -6477,7 +6522,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079275448
 GameObject:
@@ -6860,7 +6905,7 @@ Transform:
   - {fileID: 263341297}
   - {fileID: 707208043}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1120100366 stripped
 Transform:
@@ -6933,6 +6978,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e62ff102b3160dc49b0b67e90b5cbb16, type: 3}
       propertyPath: m_Name
       value: japanesewyspa
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e62ff102b3160dc49b0b67e90b5cbb16, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e62ff102b3160dc49b0b67e90b5cbb16, type: 3}
@@ -7297,7 +7346,7 @@ PrefabInstance:
     - target: {fileID: 3451118302482216456, guid: 0ac3d8ad8cbaa21458de448f6fc54093, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 7339129499576685385, guid: 57f7e6aba40aba145a36a1c856926da4, type: 3}
+      objectReference: {fileID: 7483352039260958482, guid: 44bb58ca87a3f7745ac6598af96ef0b9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ac3d8ad8cbaa21458de448f6fc54093, type: 3}
 --- !u!1 &1186101868 stripped
@@ -7402,87 +7451,95 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalScale.x
-      value: 36.64666
+      value: 386.38974
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalScale.y
-      value: 36.64666
+      value: 386.35394
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalScale.z
-      value: 36.64666
+      value: 132.36511
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.64
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 1.5800002
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.1800001
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: -0.49999997
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0.50000006
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.50000006
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: daf515e9f9065f949bb11e386be1e4d7, type: 2}
-    - target: {fileID: 919132149155446097, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+      objectReference: {fileID: 2100000, guid: 8c3fae5e601e53e468fc572392fa3102, type: 2}
+    - target: {fileID: 919132149155446097, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_Name
-      value: szafka nocna
+      value: sciananaprzeciwdrzwi
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: 919132149155446097, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_TagString
-      value: furniture
+      value: sceneria
       objectReference: {fileID: 0}
-    - target: {fileID: 3451118302482216456, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: 3451118302482216456, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3451118302482216456, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+    - target: {fileID: 3451118302482216456, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
 --- !u!1 &1207409701 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f9239454fd863db4d974686d5ae6b68e, type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
   m_PrefabInstance: {fileID: 1207409700}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1207409702
@@ -7494,14 +7551,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1207409701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6004f4bf07613064cb99dd7a78b63faa, type: 3}
+  m_Script: {fileID: 11500000, guid: 2752b6c910dda3341925968fc53734de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rzadkoscprzedmiotu: 1
-  nazwaobiektu: bedside cabinet
-  czymebeljestaktywny: 1
-  sizemultiplyier: 1.5
-  rotationaplly: {x: 0, y: 0, z: 0}
+  wallRadius: 0.25
+  przesuwaniescian: {x: 0, y: 0, z: 0}
 --- !u!1001 &1240312898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7572,6 +7626,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5243df8bfc003634197b4ff6ab187c5a, type: 3}
       propertyPath: m_Name
       value: wellisland
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5243df8bfc003634197b4ff6ab187c5a, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5243df8bfc003634197b4ff6ab187c5a, type: 3}
@@ -8052,7 +8110,7 @@ PrefabInstance:
     - target: {fileID: 3451118302482216456, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 7339129499576685385, guid: 57f7e6aba40aba145a36a1c856926da4, type: 3}
+      objectReference: {fileID: 7483352039260958482, guid: 44bb58ca87a3f7745ac6598af96ef0b9, type: 3}
     - target: {fileID: 3451118302482216456, guid: 464ca780803f72a41808141e4168e8b9, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -8479,7 +8537,7 @@ MonoBehaviour:
   imagetochangewhenudonthavelevel: {fileID: 21300000, guid: 801cf1fe9860de4478acc5e5dc07ab1b, type: 3}
   image: {fileID: 51949632}
   objectname: Steve Bed
-  value: 1000
+  value: 100
   level: 1
   levelrequired: 3
   Textofobjectname: {fileID: 881461556}
@@ -9017,6 +9075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
 --- !u!1 &1600812346
@@ -9285,6 +9347,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5b7f8c9082e8fd24ea3efb1fb6cbec91, type: 3}
       propertyPath: m_Name
       value: wyspa
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5b7f8c9082e8fd24ea3efb1fb6cbec91, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b7f8c9082e8fd24ea3efb1fb6cbec91, type: 3}
@@ -9567,6 +9633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: podloga (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44bb58ca87a3f7745ac6598af96ef0b9, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44bb58ca87a3f7745ac6598af96ef0b9, type: 3}
 --- !u!1 &1751325310
@@ -9833,7 +9903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: sceneria
       objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: 6c90cd268bbd35b45aa00bbc24faf1ff, type: 3}
       propertyPath: m_Convex
@@ -10394,6 +10464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WINTEROBJ
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c407a55cedddad4eb13a874318099e3, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c407a55cedddad4eb13a874318099e3, type: 3}
 --- !u!1 &1852027427 stripped
@@ -10606,6 +10680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e41d367d977c7f4db90b31a900ed710, type: 3}
 --- !u!4 &1935335144 stripped
@@ -10778,6 +10856,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chmurka (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
+      propertyPath: m_TagString
+      value: sceneria
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8549bf58ea58df4ea0e5051cc175a11, type: 3}
 --- !u!222 &1983304434
@@ -10802,7 +10884,7 @@ RectTransform:
   m_Children:
   - {fileID: 1829830592}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11310,7 +11392,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129180727}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000026701}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000026697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11319,7 +11401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 618, y: 1015.3}
+  m_AnchoredPosition: {x: 629, y: 1015.3}
   m_SizeDelta: {x: 750.55, y: 43.8444}
   m_Pivot: {x: 0.43368474, y: 0.0000049648943}
 --- !u!114 &2129180729

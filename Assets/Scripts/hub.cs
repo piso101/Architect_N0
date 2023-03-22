@@ -32,6 +32,7 @@ public class hub : MonoBehaviour
     public GameObject obiekspawnowania;
     public int levelporzebny;
     GameObject zespawowanyobiekt;
+    public int cenaobiektu;
     void Start()
     {
         GameObject obj = GameObject.Find("Menager");
@@ -43,10 +44,12 @@ public class hub : MonoBehaviour
     {
         if(spawnujtak) 
         {
+            
             spawnuj(obiekspawnowania,true,levelporzebny);
         }
         else
         {
+            wasitspawned = false;
             spawnuj(obiekspawnowania,false,levelporzebny);
         }
         moneyamount.text=(money).ToString("F1")+"$";
@@ -56,45 +59,92 @@ public class hub : MonoBehaviour
     bool wasitspawned=false;
     public void spawnuj(GameObject obiektdozespawnowania,bool zespawnuj,int levelrequired)
     {
-        
-        if(zespawnuj)
+        if(money>=cenaobiektu)
+        {
+            if(zespawnuj)
             {
-            if(level>=levelrequired)
+                if(level>=levelrequired)
                 {
-                    if(Input.touchCount==1)
-                    {
-                        Canvaschanger.switchtodefaultcanvas();
-                        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                        RaycastHit hit;
-                        if(Physics.Raycast(ray, out hit))
+                        if(Input.touchCount==1)
                         {
-                            if(hit.transform.GetComponent<Collider>().tag == "floor")
+                            Canvaschanger.switchtodefaultcanvas();
+                            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                            RaycastHit hit;
+                            if(Physics.Raycast(ray, out hit))
                             {
-                                if(!wasitspawned)
+                                if(hit.transform.GetComponent<Collider>().tag == "floor")
                                 {
-                                    zespawowanyobiekt = Instantiate(obiektdozespawnowania, (hit.point+new Vector3(0f,0.8f,0f)), obiektdozespawnowania.transform.rotation);
-                                    wasitspawned=true;
-                                }
-                                else
-                                {
-                                    zespawowanyobiekt.transform.position =(hit.point+new Vector3(0f,0.8f,0f));
+                                    if(!wasitspawned)
+                                    {
+                                        
+                                        zespawowanyobiekt = Instantiate(obiektdozespawnowania, (hit.point+new Vector3(0f,0.8f,0f)), obiektdozespawnowania.transform.rotation);
+                                        wasitspawned=true;
+                                        zespawowanyobiekt.tag ="ruszam";
+                                        money-=cenaobiektu;
+                                        Vibration.Vibrate(25, 150);
+                                        Statystykimebla statystykimebla = zespawowanyobiekt.GetComponent<Statystykimebla>();
+                                        statystykimebla.czymebeljestaktywny=true;
+                                        Renderer objectRenderer = zespawowanyobiekt.GetComponent<Renderer>();
+                                        Vector3 size = (objectRenderer.bounds.size / 3f)*statystykimebla.sizemultiplyier;
+                                        Vector3 center = zespawowanyobiekt.transform.position;
+                                        Quaternion rotation = zespawowanyobiekt.transform.rotation;
+                                        Collider[] colliders = Physics.OverlapBox(center, size, rotation );
+                                        foreach (Collider collider in colliders)
+                                        {
+                                            if (collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture") || collider.gameObject.CompareTag("dirtywall")||collider.gameObject.CompareTag("sceneria"))
+                                            {
+                                                
+                                                Vibration.Vibrate(100, 100);
+                                                Destroy(zespawowanyobiekt);
+                                                zespawowanyobiekt=null;
+                                                money+=cenaobiektu;
+                                                wasitspawned=false;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Vector3 wtomstronke =(hit.point+new Vector3(0f,0.8f,0f));
+                                        Vector3 temp = zespawowanyobiekt.transform.position;
+                                        zespawowanyobiekt.transform.position = wtomstronke;
+                                        
+                                        Vibration.Vibrate(25, 150);
+                                        Statystykimebla statystykimebla = zespawowanyobiekt.GetComponent<Statystykimebla>();
+                                        // Check for collisions
+                                        Renderer objectRenderer = zespawowanyobiekt.GetComponent<Renderer>();
+                                        Vector3 size = (objectRenderer.bounds.size / 3f)*statystykimebla.sizemultiplyier;
+                                        Vector3 center = zespawowanyobiekt.transform.position;
+                                        Quaternion rotation = zespawowanyobiekt.transform.rotation;
+                                        rotation *= Quaternion.Euler(statystykimebla.rotationaplly);
+                                        // OverlapBox that fits into the object's convex shape
+                                        Collider[] colliders = Physics.OverlapBox(center, size, rotation );
+                                        foreach (Collider collider in colliders)
+                                        {
+                                            // Check if colliding with wall, furniture, or dirtywall
+                                            if (collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture") || collider.gameObject.CompareTag("dirtywall")||collider.gameObject.CompareTag("sceneria"))
+                                            {
+                                                Vibration.Vibrate(100, 100);
+                                                zespawowanyobiekt.transform.position = temp;
+                                                break;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                    else if (Input.touchCount<1)
-                    {
-                        zespawowanyobiekt=null;
-                        zespawnuj=false;
-                        spawnujtak=false;
-                    }
-                    
-                    
+                        else if (Input.touchCount<1)
+                        {
+                            
+                            zespawowanyobiekt.tag ="furniture";
+                            zespawowanyobiekt=null;
+                            zespawnuj=false;
+                            wasitspawned=false;
+                            spawnujtak=false;
+                        }
                 }
-            
-            
+            }
         }
-        
     }
 }
 
