@@ -78,6 +78,7 @@ public class hub : MonoBehaviour
                                     {
                                         
                                         zespawowanyobiekt = Instantiate(obiektdozespawnowania, (hit.point+new Vector3(0f,0.8f,0f)), obiektdozespawnowania.transform.rotation);
+
                                         wasitspawned=true;
                                         zespawowanyobiekt.tag ="ruszam";
                                         money-=cenaobiektu;

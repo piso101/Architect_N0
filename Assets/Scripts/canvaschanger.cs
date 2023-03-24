@@ -9,6 +9,7 @@ public class canvaschanger : MonoBehaviour
     public GameObject defaultcanvas;
     public GameObject skilltree;
     public GameObject shopcanvas;
+    public GameObject luckywheelcanvas;
     private hub Hub;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class canvaschanger : MonoBehaviour
         defaultcanvas.SetActive(true);
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
+        luckywheelcanvas.SetActive(false);
         GameObject obj = GameObject.Find("Menager");
         Hub = obj.GetComponent<hub>();
         
@@ -76,18 +78,27 @@ public class canvaschanger : MonoBehaviour
         defaultcanvas.SetActive(false);
         skilltree.SetActive(true);
         shopcanvas.SetActive(false);
-
+        luckywheelcanvas.SetActive(false);
     }
     public void switchtodefaultcanvas()
     {
         defaultcanvas.SetActive(true);
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
+        luckywheelcanvas.SetActive(false);
     }
     public void switchtoshopcanvas()
     {
         defaultcanvas.SetActive(false);
         skilltree.SetActive(false);
         shopcanvas.SetActive(true);
+        luckywheelcanvas.SetActive(false);
+    }
+    public void switchtoluckywheel()
+    {
+        defaultcanvas.SetActive(false);
+        skilltree.SetActive(false);
+        shopcanvas.SetActive(false);
+        luckywheelcanvas.SetActive(true);
     }
 }
