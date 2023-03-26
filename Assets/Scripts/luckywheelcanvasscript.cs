@@ -1,3 +1,6 @@
+using System.ComponentModel.Design;
+using System.Net;
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +14,10 @@ public class luckywheelcanvasscript : MonoBehaviour
     public GameObject wheel;
     public GameObject wheelbutton;
     public TextMeshProUGUI vallettext;
+    public TextMeshProUGUI costtext;
     private hub Hub;
     public GameObject wheeltarget;
+    public TextMeshProUGUI prize;
 
     void Start()
     {
@@ -21,18 +26,23 @@ public class luckywheelcanvasscript : MonoBehaviour
 
     void Update()
     {
-        vallettext.text = Hub.money.ToString("F1") + "$";
+        vallettext.text = ("Wallet: ")+Hub.money.ToString("F1") + "$";
+        costtext.text = ("Cost: ")+Hub.level*Hub.level*1000 + "$";//updating wallet and cost of spin after opening canvas of luckyspin
     }
 
     public void spinwheel()
     {
-        wheel.GetComponent<WheelScript>().spinwheel();
-        wheelbutton.GetComponent<Button>().interactable = false;
-        Hub.money -= 1000;
+        if(Hub.money<Hub.level*Hub.level*1000)//checks if player has enough money if not breaks function
+        {
+            return;
+        }
+        wheel.GetComponent<WheelScript>().spinwheel();//this gets wheel to spin by calling to a function that rotates it
+        wheelbutton.GetComponent<Button>().interactable = false;//turns of a button for a spining time
+        Hub.money -= Hub.level*Hub.level*1000;
         StartCoroutine(CheckWheelSpinning());
     }
 
-    public IEnumerator CheckWheelSpinning()
+    public IEnumerator CheckWheelSpinning()//checks if animation is done
     {
         bool isSpinning = true;
         while (isSpinning)
@@ -46,46 +56,45 @@ public class luckywheelcanvasscript : MonoBehaviour
 
     void EnableButton()
     {
-        wheelbutton.GetComponent<Button>().interactable = true;
+        wheelbutton.GetComponent<Button>().interactable = true;//turn on functions of a button
     }
 
-    void CheckPrice()
+    void CheckPrice()//checks what price has player done
     {
-        float angle = wheeltarget.transform.eulerAngles.z;
+        float angle = wheel.transform.rotation.eulerAngles.z;
         // Round the angle to the nearest 45 degrees to determine the prize.
-        int prizeIndex = Mathf.RoundToInt(angle / 36.0f) % 8;
+        int prizeIndex = Mathf.RoundToInt(angle / 36.0f) % 310;
         switch (prizeIndex)
         {
-            
-            case 0:
-                Debug.Log("You won prize 1");
+            case 10:
+                prize.text = "You won prize 1";
                 break;
             case 1:
-                Debug.Log("You won prize 2");
+                prize.text = "You won prize 2";
                 break;
             case 2:
-                Debug.Log("You won prize 3");
+                prize.text = "You won prize 3";
                 break;
             case 3: 
-                Debug.Log("You won prize 4");
+                prize.text = "You won prize 4";
                 break;
             case 4:
-                Debug.Log("You won prize 5");
+                prize.text = "You won prize 5";
                 break;
             case 5:
-                Debug.Log("You won prize 6");
+                prize.text = "You won prize 6";
                 break;
             case 6:
-                Debug.Log("You won prize 7");
+                prize.text = "You won prize 7";
                 break;
             case 7:
-                Debug.Log("You won prize 8");
+                prize.text = "You won prize 8";
                 break;
             case 8:
-                Debug.Log("You won prize 9");
+                prize.text = "You won prize 9";
                 break;
             case 9:
-                Debug.Log("You won prize 10");
+                prize.text = "You won prize 10";
                 break;
         }
     }

@@ -20,7 +20,7 @@ public class PaintBtn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Hub.szczotkajestwrece)
+        if(Hub.szczotkajestwrece)//this code doesnt work tbh
         {
             Paintbtn.GetComponent<RawImage>().color = Color.white;
             Hub.czykolorjestwrece = false;
@@ -28,7 +28,7 @@ public class PaintBtn : MonoBehaviour
     }
     public void turnpaint()
     {
-        if(!Hub.przyciskidoruszania)
+        if(!Hub.przyciskidoruszania)// 3 types of states where button can be 1 dont paint 2  paint 3 show colour picker and paint
         {
             switch(licznik)
             {
@@ -43,7 +43,7 @@ public class PaintBtn : MonoBehaviour
                 case(2):
                 Vibration.Vibrate(50, 150);
                 Paintbtn.GetComponent<RawImage>().color = btncolor;
-                Hub.czykolorjestwrece = false;//pokazuje colorpicker
+                Hub.czykolorjestwrece = false;//shwowin colorpicker
                 Hub.malowac=true;
                 licznik=1;
                 break;
@@ -51,7 +51,7 @@ public class PaintBtn : MonoBehaviour
                 case(3):
                 Vibration.Vibrate(50, 150);
                 Paintbtn.GetComponent<RawImage>().color = btncolor;
-                Hub.czykolorjestwrece = true;//pokazuje colorpicker
+                Hub.czykolorjestwrece = true;//showin colorpicker
                 Hub.malowac=true;
                 licznik=2;
                 break;

@@ -27,7 +27,7 @@ public class Broombutton : MonoBehaviour
         }
 
     }
-    public void TurnBroom()
+    public void TurnBroom()//changes color of a button 
     {
         if(Hub.szczotkajestwrece)
         {

@@ -20,7 +20,7 @@ public class Levelskilltree : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//based on level that player is curently on swiches background of a skilltree
     {
         switch (Hub.level)
         {

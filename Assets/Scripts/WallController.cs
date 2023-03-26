@@ -12,20 +12,20 @@ public class WallController : MonoBehaviour
     private List<GameObject> nearbyWalls = new List<GameObject>();
     void Update()
     {
-        CheckWalls();
+        CheckWalls();//everyframe check if wall is nearby
     }
 
     void CheckWalls()
     {
         
-        Collider[] colliders = Physics.OverlapSphere(transform.position, wallRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, wallRadius);//create a sphere around camera
             if (!(nearbyWalls.Contains(GetComponent<Collider>().gameObject))&&((GetComponent<Collider>().gameObject.tag =="wall")||GetComponent<Collider>().gameObject.tag =="dirtywall"||GetComponent<Collider>().gameObject.tag =="wallaleniemaluj"))
             {
-                nearbyWalls.Add(GetComponent<Collider>().gameObject);
+                nearbyWalls.Add(GetComponent<Collider>().gameObject);//if oobjects is not already on list add to the list if it has tags required on it
             }
             foreach (GameObject wall in nearbyWalls)
             {
-                if ((Vector3.Distance ((wall.transform.position-przesuwaniescian), Camera.main.transform.position) > 7.5))
+                if ((Vector3.Distance ((wall.transform.position-przesuwaniescian), Camera.main.transform.position) > 7.5))//if camera is futher from wall set its mesh renderer to true to show in the game
                 {
                     wall.layer=LayerMask.NameToLayer("Default");
                 wall.GetComponent<Renderer>().enabled = true;
@@ -53,7 +53,7 @@ public class WallController : MonoBehaviour
             }
             foreach (GameObject wall in nearbyWalls)
             {
-                if (Vector3.Distance (wall.transform.position, Camera.main.transform.position) < 7.5)
+                if (Vector3.Distance (wall.transform.position, Camera.main.transform.position) < 7.5) // if camera is closer relative to the wall turn off mesh renderer so it doesnt abstract the view and change its layer to ignore raycast so raycast function doesnt count the wall that is not viisible
                 {
                 wall.layer=LayerMask.NameToLayer("Ignore Raycast");
                 wall.GetComponent<Renderer>().enabled = false;

@@ -23,7 +23,7 @@ public class LevelShower : MonoBehaviour
     void Update()
     {
         int levelshower = Hub.level;
-        if(levelshower == 1)
+        if(levelshower == 1)//based on level of a player switches sprites of badges that can be seen on the main screen
         {
         ramkanaodznaki.texture=odznaka1;
         }

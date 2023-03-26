@@ -36,7 +36,7 @@ public class Colourpicker : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   //shows a colour picker
 
         if(Hub.czykolorjestwrece&&!czysiepojawil)
         {
@@ -88,7 +88,7 @@ public class Colourpicker : MonoBehaviour
             }
         }
     }
-    public void hassliderchanged()
+    public void hassliderchanged()//if slider has changed the colour picked is changing based on position of sliders
     {
             Color newColor = new Color(Redslider.value / 255f, Greenslider.value / 255f, Blueslider.value / 255f);
             Hub.paintcolor = newColor;
@@ -99,7 +99,7 @@ public class Colourpicker : MonoBehaviour
             }
             Hub.czykolorzostalwybrany=true;
     }
-    public void buttonisclicked(GameObject butoon)//pobieranie historii kolorow
+    public void buttonisclicked(GameObject butoon)//taking the history of colours
     {
             RawImage buttonRawImage = butoon.GetComponent<RawImage>();
             if (buttonRawImage != null) 
@@ -116,7 +116,7 @@ public class Colourpicker : MonoBehaviour
                 Redslider.value=(Hub.paintcolor.r*255f);
                 Greenslider.value=(Hub.paintcolor.g*255f);
                 Blueslider.value=(Hub.paintcolor.b*255f);
-                 Hub.czykolorzostalwybrany=true;
+                Hub.czykolorzostalwybrany=true;
             }
     }
     public void ktorykolorbracie(int i)

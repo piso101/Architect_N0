@@ -57,7 +57,7 @@ public class hub : MonoBehaviour
         moneyshop.text=(money).ToString("F1")+"$";
     }
     bool wasitspawned=false;
-    public void spawnuj(GameObject obiektdozespawnowania,bool zespawnuj,int levelrequired)
+    public void spawnuj(GameObject obiektdozespawnowania,bool zespawnuj,int levelrequired)//this script basicly spawns object dragged from shop and checks if can be placed
     {
         if(money>=cenaobiektu)
         {
@@ -78,7 +78,7 @@ public class hub : MonoBehaviour
                                     {
                                         
                                         zespawowanyobiekt = Instantiate(obiektdozespawnowania, (hit.point+new Vector3(0f,0.8f,0f)), obiektdozespawnowania.transform.rotation);
-
+                                        //this has a bug in which object is not spawned and game basicly freeze
                                         wasitspawned=true;
                                         zespawowanyobiekt.tag ="ruszam";
                                         money-=cenaobiektu;
@@ -136,7 +136,6 @@ public class hub : MonoBehaviour
                         }
                         else if (Input.touchCount<1)
                         {
-                            
                             zespawowanyobiekt.tag ="furniture";
                             zespawowanyobiekt=null;
                             zespawnuj=false;

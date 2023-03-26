@@ -43,7 +43,7 @@ public class MaterialMenager : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)&&hit.collider.gameObject.tag == "dirtywall"&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled)
             {
-                if (hit.collider.gameObject.tag == "dirtywall")
+                if (hit.collider.gameObject.tag == "dirtywall")//this script after raycasting checks if wall hited is dirty if it is it transports animation to wall and plays animation
                 {
                     bool czyszczotka = Hub.szczotkajestwrece;
                     
@@ -58,7 +58,7 @@ public class MaterialMenager : MonoBehaviour
                     
                     heldDuration += Time.deltaTime;
                     
-                    if (heldDuration >= holdTime&&czyszczotka)
+                    if (heldDuration >= holdTime&&czyszczotka)//after some time it cleans wall by turning its material
                     {
                         hit.collider.gameObject.tag = "wall";
                         Renderer renderer = hit.collider.GetComponent<Renderer>();
@@ -76,10 +76,10 @@ public class MaterialMenager : MonoBehaviour
                         Hub.animgombka = false;
                         movingcleaninganim.SetTargetObject(movewhenanimoff);
                 }
-            }//malowanie sciany////////////////////////////////////////////////////////////////////////////////////
+            }//paitning of a wall
             else if (Physics.Raycast(ray, out hit)&&(hit.collider.gameObject.tag == "wall"||hit.collider.gameObject.tag == "floor")&& hit.collider.gameObject.GetComponent<MeshRenderer>().enabled&&Hub.malowac)
             {
-                if (hit.collider.gameObject.tag == "wall")
+                if (hit.collider.gameObject.tag == "wall")//same here checks if wall hited is wall and colours itselft after some time and playing animation
                 {
                     if(paintheldDuration==0&&Hub.czykolorzostalwybrany&&!Hub.animszczotka&&!Hub.animgombka)
                     {
@@ -100,7 +100,7 @@ public class MaterialMenager : MonoBehaviour
                             
                         }
                     }
-                    else if(!(hit.transform.gameObject==tenmalujeteraz))
+                    else if(!(hit.transform.gameObject==tenmalujeteraz))//this was for fixing a bug that after some time you could paint all walls at once
                     {
                     paintheldDuration = 0f;
                     Hub.animmalowanie = false; 
@@ -112,7 +112,7 @@ public class MaterialMenager : MonoBehaviour
                     Vibration.Vibrate(20,100);
                     }
                 }
-                else if(hit.collider.gameObject.tag == "floor")
+                else if(hit.collider.gameObject.tag == "floor")//there is paiting of a floor it doesnt have animation yet
                 {
                     if(paintheldDuration==0&&Hub.czykolorzostalwybrany&&!Hub.animszczotka&&!Hub.animgombka)
                     {

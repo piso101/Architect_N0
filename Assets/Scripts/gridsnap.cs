@@ -34,7 +34,7 @@ public class gridsnap : MonoBehaviour
     }
     void Update()
     {
-        if(!(Hub.spawnujtak))
+        if(!(Hub.spawnujtak))//this picks up a furniture
         {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -118,7 +118,7 @@ public class gridsnap : MonoBehaviour
         wartoscdopowtarzaniaprzycisku=zmien;
     }
         private void FixedUpdate() 
-        {
+        {//this in the future will based on camera location switch movement of a joystick that moves furniture
             switch(polozeniekamery)
             {
                 case 1:
@@ -148,7 +148,7 @@ public class gridsnap : MonoBehaviour
             ruszaj(wtomstronke);
             policzone= false;
             }
-            else if((wartoscdopowtarzaniaprzycisku)&&(!policzone))
+            else if((wartoscdopowtarzaniaprzycisku)&&(!policzone))//slows down movememnt of furniture by a bit
             {
                 if(licz<20)
                 {
@@ -164,7 +164,7 @@ public class gridsnap : MonoBehaviour
         }
 
     
-    public void ruszaj(Vector3 wtomstronke)
+    public void ruszaj(Vector3 wtomstronke)//moves furniture if button is pressed
     {
         // Move the object
         podniesionyprzedmiot.transform.position += wtomstronke;
@@ -194,7 +194,7 @@ public class gridsnap : MonoBehaviour
     }
 
 
-    public void obracajmnie()
+    public void obracajmnie()//rotates furniture if button is pressed
     {
         //Rotating Object
         Vector3 wtomstronke = new Vector3(0f, 0f, 90f);

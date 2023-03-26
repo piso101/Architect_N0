@@ -28,10 +28,10 @@ public class canvaschanger : MonoBehaviour
     {
 
     }
-    void levelupodczucie()
+    void levelupodczucie()//vibrates when player has upgraded
     {
         Vibration.Vibrate(100, 100);
-        Vibration.Vibrate(50, 100);//jakasmuzyczka czy jakas animacja fajna by byla tu
+        Vibration.Vibrate(50, 100);
         Vibration.Vibrate(150, 50);
     }
     public void upgradebtn()

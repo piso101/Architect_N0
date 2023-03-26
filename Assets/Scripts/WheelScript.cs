@@ -11,7 +11,7 @@ public class WheelScript : MonoBehaviour
     public float rotationSpeed = 0f;
     public float minRotationSpeed = 10000000000000000000000000000000000000f;
     public float maxRotationSpeed = 100000000000000000000000000000000000000f;
-    public float acceleration = 100000000000000000000000000000000000000f;
+    public float acceleration = 100000000000000000000000000000000000000f;//those fuckinhg values are fucking big and i dont care cuz only those work xddd
     public float deceleration = 100f;
     public float stopTime = 100000000000000000000000000000000000000f;
     public float minStopAngle = 15.0f;
@@ -24,8 +24,8 @@ public class WheelScript : MonoBehaviour
 
     private void Start()
     {
-        isSpinning = false;
-        currentRotationSpeed = rotationSpeed;
+        isSpinning = false;//setting up variables
+        currentRotationSpeed = rotationSpeed;//if not those wheel would spin i guess
     }
 
     private void Update()
@@ -35,15 +35,15 @@ public class WheelScript : MonoBehaviour
             // Update rotation speed.
             if (currentRotationSpeed < targetRotationSpeed)
             {
-                currentRotationSpeed += acceleration;
+                currentRotationSpeed += acceleration;//accelerate if rotation speed is lower than targeted one (targeted one is basicly max of how much wheel can spin)
 
             }
             else if (currentRotationSpeed > targetRotationSpeed)
             {
-                currentRotationSpeed -= deceleration;
+                currentRotationSpeed -= deceleration;//start deceleration if currentrotation speed is indeed highet than max
                 if (currentRotationSpeed < targetRotationSpeed)
                 {
-                    currentRotationSpeed = targetRotationSpeed;
+                    currentRotationSpeed = targetRotationSpeed;// speed up if time is not up but wheel is not spining well
                 }
             }
 
@@ -72,7 +72,7 @@ public class WheelScript : MonoBehaviour
         }
     }
 
-    public void spinwheel()
+    public void spinwheel()//function that randomizes angles and speed for wheel
     {
         isSpinning = true;
         targetRotationSpeed = UnityEngine.Random.Range(minRotationSpeed, maxRotationSpeed);
@@ -80,7 +80,7 @@ public class WheelScript : MonoBehaviour
         currentStopTime = stopTime;
     }
 
-    public void StopSpinning()
+    public void StopSpinning()//this is some thing like hand brake for spinnin
     {
         isSpinning = false;
         currentStopTime = 0.0f;

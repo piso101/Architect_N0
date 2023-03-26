@@ -20,7 +20,7 @@ public class Movingcleaninganim : MonoBehaviour
             foreach (Transform child in objectToMove.transform)
             {
                 child.position = objectToMove.transform.position;
-                child.rotation = objectToMove.transform.rotation;
+                child.rotation = objectToMove.transform.rotation;//move cleaning animation to wall that is being clean rn
             }
         }
     }

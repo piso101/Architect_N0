@@ -15,7 +15,7 @@ public class shopgameobjectbtn : MonoBehaviour
     public string objectname;
     public int value;
     public int level;
-    public int levelrequired;
+    public int levelrequired;//set public values only in inspector not here by adding script to button that is in context in shopping canvas
     public TextMeshProUGUI Textofobjectname;
     public TextMeshProUGUI textofvalue;
     public TextMeshProUGUI Textoflevel;
@@ -32,7 +32,7 @@ public class shopgameobjectbtn : MonoBehaviour
         Canvaschanger = obj.GetComponent<canvaschanger>();
         image.sprite=imageofbuttonwithobject;
         disablewholeimage();
-        disableallvalues();
+        disableallvalues();//at the start of game disable all of values and sprites of those buttons
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class shopgameobjectbtn : MonoBehaviour
     {
         if(Hub.level>=levelrequired)
         {
-            setallvalues();
+            setallvalues();//if player has level required or more show those sprites and values of the item in the shop
             enablewholeimage();
         }
     }
@@ -77,7 +77,7 @@ public class shopgameobjectbtn : MonoBehaviour
         textofvalue.text="";
         Textofearnings.text="";
     }
-    public void takdraguje()
+    public void takdraguje()//takdraguje(eng.yesdragging)checks if player is dragging the button.
     {
         
         Hub.obiekspawnowania = objects;

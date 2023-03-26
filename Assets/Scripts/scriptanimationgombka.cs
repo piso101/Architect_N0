@@ -13,10 +13,10 @@ public class scriptanimationgombka : MonoBehaviour
     }
     void Update() 
     {
-        bool zagrajanimacje = Hub.animgombka;
+        bool zagrajanimacje = Hub.animgombka;// always checking if variable has changed
         if(zagrajanimacje)
         {
-            anim.SetBool("grajanimacjesponge",true);  
+            anim.SetBool("grajanimacjesponge",true);  //same shit there just turn on or off bool grajanimacjesponge(eng. play animation sponge) 
         }
         else anim.SetBool("grajanimacjesponge",false); 
          

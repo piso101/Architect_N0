@@ -19,7 +19,7 @@ public class ifbuttonisactive : MonoBehaviour
     }
     public void buttonwasclicked()
     {
-        if(isbuttonclicked)
+        if(isbuttonclicked)//truns button green if is active
         {
             GetComponent<RawImage>().color = Color.white;
             isbuttonclicked=false;

@@ -13,12 +13,11 @@ public class scriptanimationwalek : MonoBehaviour
     }
     void Update() 
     {
-        bool zagrajanimacje = Hub.animmalowanie;
+        bool zagrajanimacje = Hub.animmalowanie;// checks if animmalowanie(eng.animation of paiting) by casting variable zagrajanimacje(eng.playanimation) from hub
         if(zagrajanimacje)
         {
-            anim.SetBool("animuj",true);  
+            anim.SetBool("animuj",true);  //in animator anim set bool animuj(eng.animate) to true to turn on animation
         }
-        else anim.SetBool("animuj",false); 
-         
+        else anim.SetBool("animuj",false); // turn false if needed
     }
 }

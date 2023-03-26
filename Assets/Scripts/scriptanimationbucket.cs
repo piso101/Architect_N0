@@ -13,12 +13,11 @@ public class scriptanimationbucket : MonoBehaviour
     }
     void Update() 
     {
-        bool zagrajanimacje = Hub.animmalowanie;
+        bool zagrajanimacje = Hub.animmalowanie;//checking if variable animmalowanie(eng.anim paitning) has changed
         if(zagrajanimacje)
         {
-            anim.SetBool("animuj",true);  
+            anim.SetBool("animuj",true);  //csetin animuj inside of animator anim to true
         }
         else anim.SetBool("animuj",false); 
-         
     }
 }

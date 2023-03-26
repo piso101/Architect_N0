@@ -26,10 +26,10 @@ public class Movepicker : MonoBehaviour
     }
 
 
-    void Update()
+    void Update()//this code is shitty i know ... it is meant to show buttons to move furniture but instead of turning them of or on my shitty brain thought about changing their size so here we go ...
     {
 
-        if(Hub.przyciskidoruszania&&!czysiepojawil)
+        if(Hub.przyciskidoruszania&&!czysiepojawil)//przyciskidoruszania (eng.buttons for moving) czysiepojawil (eng.was it shown?)
         {
             czysiepojawil=true;
             
@@ -50,7 +50,7 @@ public class Movepicker : MonoBehaviour
                 }
             }
         }
-        else if(!Hub.przyciskidoruszania&&czysiepojawil)
+        else if(!Hub.przyciskidoruszania&&czysiepojawil)//else turn scale of those button to the min so playyer cannot see them
         {
 
             czysiepojawil=false;

@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     private Vector3 point;
         private hub Hub;
  
-    void Start () 
+    void Start () //scripts lock on a floor and rotates camera if player has finger down
     {
         point = target.transform.position;
         transform.LookAt(point);
