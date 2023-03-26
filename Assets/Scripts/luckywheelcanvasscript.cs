@@ -18,6 +18,7 @@ public class luckywheelcanvasscript : MonoBehaviour
     private hub Hub;
     public GameObject wheeltarget;
     public TextMeshProUGUI prize;
+    public bool adwatched = false;
 
     void Start()
     {
@@ -31,15 +32,22 @@ public class luckywheelcanvasscript : MonoBehaviour
     }
 
     public void spinwheel()
-    {
-        if(Hub.money<Hub.level*Hub.level*1000)//checks if player has enough money if not breaks function
+    {   
+        bool hasnotenoughmoney = Hub.money >= Hub.level*Hub.level*1000;
+        if(!hasnotenoughmoney)//checks if player has enough money if not breaks function
         {
-            return;
-        }
         wheel.GetComponent<WheelScript>().spinwheel();//this gets wheel to spin by calling to a function that rotates it
         wheelbutton.GetComponent<Button>().interactable = false;//turns of a button for a spining time
         Hub.money -= Hub.level*Hub.level*1000;
         StartCoroutine(CheckWheelSpinning());
+        }
+        else if (adwatched)
+        {
+        wheel.GetComponent<WheelScript>().spinwheel();//this gets wheel to spin by calling to a function that rotates it
+        wheelbutton.GetComponent<Button>().interactable = false;//turns of a button for a spining time
+        StartCoroutine(CheckWheelSpinning());
+        adwatched = false;
+        }
     }
 
     public IEnumerator CheckWheelSpinning()//checks if animation is done
