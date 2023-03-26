@@ -17,7 +17,7 @@ public class WatchAdforspin : MonoBehaviour
     {
         
     }
-    void buttonforadpressed()
+    public void buttonforadpressed()
     {
         //show ad
         //if ad is watched
