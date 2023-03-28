@@ -10,6 +10,7 @@ public class canvaschanger : MonoBehaviour
     public GameObject skilltree;
     public GameObject shopcanvas;
     public GameObject luckywheelcanvas;
+    public GameObject currencycanvas;
     private hub Hub;
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class canvaschanger : MonoBehaviour
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
+        currencycanvas.SetActive(false);
         GameObject obj = GameObject.Find("Menager");
         Hub = obj.GetComponent<hub>();
         
@@ -79,6 +81,7 @@ public class canvaschanger : MonoBehaviour
         skilltree.SetActive(true);
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
+        currencycanvas.SetActive(false);
     }
     public void switchtodefaultcanvas()
     {
@@ -86,6 +89,7 @@ public class canvaschanger : MonoBehaviour
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
+        currencycanvas.SetActive(false);
     }
     public void switchtoshopcanvas()
     {
@@ -93,6 +97,7 @@ public class canvaschanger : MonoBehaviour
         skilltree.SetActive(false);
         shopcanvas.SetActive(true);
         luckywheelcanvas.SetActive(false);
+        currencycanvas.SetActive(false);
     }
     public void switchtoluckywheel()
     {
@@ -100,5 +105,14 @@ public class canvaschanger : MonoBehaviour
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(true);
+        currencycanvas.SetActive(false);
+    }
+    public void switchtocurrencycanvas()
+    {
+        defaultcanvas.SetActive(false);
+        skilltree.SetActive(false);
+        shopcanvas.SetActive(false);
+        luckywheelcanvas.SetActive(false);
+        currencycanvas.SetActive(true);
     }
 }

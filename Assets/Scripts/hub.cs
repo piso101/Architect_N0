@@ -33,6 +33,7 @@ public class hub : MonoBehaviour
     public int levelporzebny;
     GameObject zespawowanyobiekt;
     public int cenaobiektu;
+    public double multiplyer=1;
     void Start()
     {
         GameObject obj = GameObject.Find("Menager");

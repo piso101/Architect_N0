@@ -10,6 +10,7 @@ public class Statystykimebla : MonoBehaviour
     public bool czymebeljestaktywny=true;// values for each furnitrue should be applied only in inspector!!!
     public float sizemultiplyier;
     public Vector3 rotationaplly;
+    public double time;
     void Start() 
     {
         GameObject obj = GameObject.Find("Menager");
@@ -17,12 +18,23 @@ public class Statystykimebla : MonoBehaviour
     }
     void Update()
     {
-        
+        if(Hub.multiplyer>1)
+        {
+            if(time<60)
+            {
+                time+=Time.deltaTime;
+            }
+            else 
+            {
+                Hub.multiplyer=1;
+                time=0;
+            }
+        }
         
         if(czymebeljestaktywny==true)//czymebeljestaktywny(eng.isfurnitureactive)
         {
 
-                Hub.money+=rzadkoscprzedmiotu*0.028; //add to the whole money count of money rzadkoscprzedmiotu(eng.rarityofitem)multiplied by 0.028 so it is for example 100$/min
+                Hub.money+=rzadkoscprzedmiotu*0.028*Hub.multiplyer; //add to the whole money count of money rzadkoscprzedmiotu(eng.rarityofitem)multiplied by 0.028 so it is for example 100$/min
         }
         
     }
