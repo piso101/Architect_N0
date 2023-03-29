@@ -11,6 +11,7 @@ public class canvaschanger : MonoBehaviour
     public GameObject shopcanvas;
     public GameObject luckywheelcanvas;
     public GameObject currencycanvas;
+    public GameObject islandchooser;
     private hub Hub;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class canvaschanger : MonoBehaviour
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
         currencycanvas.SetActive(false);
+        islandchooser.SetActive(false);
         GameObject obj = GameObject.Find("Menager");
         Hub = obj.GetComponent<hub>();
         
@@ -82,6 +84,7 @@ public class canvaschanger : MonoBehaviour
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
         currencycanvas.SetActive(false);
+        islandchooser.SetActive(false);
     }
     public void switchtodefaultcanvas()
     {
@@ -90,6 +93,7 @@ public class canvaschanger : MonoBehaviour
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
         currencycanvas.SetActive(false);
+        islandchooser.SetActive(false);
     }
     public void switchtoshopcanvas()
     {
@@ -98,6 +102,7 @@ public class canvaschanger : MonoBehaviour
         shopcanvas.SetActive(true);
         luckywheelcanvas.SetActive(false);
         currencycanvas.SetActive(false);
+        islandchooser.SetActive(false);
     }
     public void switchtoluckywheel()
     {
@@ -106,6 +111,7 @@ public class canvaschanger : MonoBehaviour
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(true);
         currencycanvas.SetActive(false);
+        islandchooser.SetActive(false);
     }
     public void switchtocurrencycanvas()
     {
@@ -114,5 +120,15 @@ public class canvaschanger : MonoBehaviour
         shopcanvas.SetActive(false);
         luckywheelcanvas.SetActive(false);
         currencycanvas.SetActive(true);
+        islandchooser.SetActive(false);
+    }
+    public void switchtoislandchooser()
+    {
+        defaultcanvas.SetActive(false);
+        skilltree.SetActive(false);
+        shopcanvas.SetActive(false);
+        luckywheelcanvas.SetActive(false);
+        currencycanvas.SetActive(false);
+        islandchooser.SetActive(true);
     }
 }
