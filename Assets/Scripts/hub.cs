@@ -21,6 +21,7 @@ public class hub : MonoBehaviour
     //movingobjects
     public bool przyciskidoruszania=false;
     //inne
+    
     public int level=1;
     public Color buttoncolor;
     public double money=0;

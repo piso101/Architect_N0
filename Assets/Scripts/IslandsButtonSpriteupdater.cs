@@ -22,13 +22,17 @@ public class IslandsButtonSpriteupdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    if(Hub.level >=levelrequired)
+    if(Hub.level >=levelrequired)//if player has enough level to unlock island switch sprite to land
     {
         islandbtnimage.sprite = landimage;
+        //set button to interactable true   
+        islandbtnimage.GetComponent<Button>().interactable = true;
     }   
-    else
+    else//if player doesnt have enough level to unlock island switch sprite to questionmark
     {
         islandbtnimage.sprite = questionmark;
+        //set button to interactable false
+        islandbtnimage.GetComponent<Button>().interactable = false;
     }
     }
 }

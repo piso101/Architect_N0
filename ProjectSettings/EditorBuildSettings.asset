@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/1island.unity
+    guid: ba8cf45d6af4cce44b53c4f8a68f8ad0
+  - enabled: 1
+    path: Assets/Scenes/2island.unity
+    guid: 7dd8e9cc4a6322b4aac4182962c30599
+  - enabled: 1
+    path: Assets/Scenes/3island.unity
+    guid: 8bb6086796da93b4b99285a03c091ba0
+  - enabled: 1
+    path: Assets/Scenes/4island.unity
+    guid: 1dea4e294d8f82d4f85ea339ffdee6df
+  - enabled: 1
+    path: Assets/Scenes/5island.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
