@@ -1,3 +1,4 @@
+using System.Net;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,17 @@ public class Statystykimebla : MonoBehaviour
     public float sizemultiplyier;
     public Vector3 rotationaplly;
     public double time;
+    private currencycontroller Currencycontroller;
     void Start() 
     {
         GameObject obj = GameObject.Find("Menager");
         Hub = obj.GetComponent<hub>();//cast to hub script
+        if(czymebeljestaktywny == true)
+        {
+            int temp = PlayerPrefs.GetInt("sumarzadkosciprzedmiotow");
+            temp += rzadkoscprzedmiotu;
+            PlayerPrefs.SetInt("sumarzadkosciprzedmiotow", temp);
+        }
     }
     void Update()
     {
@@ -30,12 +38,5 @@ public class Statystykimebla : MonoBehaviour
                 time=0;
             }
         }
-        
-        if(czymebeljestaktywny==true)//czymebeljestaktywny(eng.isfurnitureactive)
-        {
-
-                Hub.money+=rzadkoscprzedmiotu*0.028*Hub.multiplyer; //add to the whole money count of money rzadkoscprzedmiotu(eng.rarityofitem)multiplied by 0.028 so it is for example 100$/min
-        }
-        
     }
 }

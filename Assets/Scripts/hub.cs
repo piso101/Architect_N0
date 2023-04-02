@@ -35,15 +35,21 @@ public class hub : MonoBehaviour
     GameObject zespawowanyobiekt;
     public int cenaobiektu;
     public double multiplyer=1;
+    
     void Start()
     {
         GameObject obj = GameObject.Find("Menager");
         Canvaschanger = obj.GetComponent<canvaschanger>();
-
     }
 
     void Update() 
     {
+        int temp = PlayerPrefs.GetInt("level");
+        money=PlayerPrefs.GetFloat("wallet");
+        if(temp>level)
+        {
+            level=temp;
+        }
         if(spawnujtak) 
         {
             
@@ -54,6 +60,7 @@ public class hub : MonoBehaviour
             wasitspawned = false;
             spawnuj(obiekspawnowania,false,levelporzebny);
         }
+        
         moneyamount.text=(money).ToString("F1")+"$";
         moneyamoutskilltree.text=(money).ToString("F1")+"$";
         moneyshop.text=(money).ToString("F1")+"$";
@@ -84,6 +91,7 @@ public class hub : MonoBehaviour
                                         wasitspawned=true;
                                         zespawowanyobiekt.tag ="ruszam";
                                         money-=cenaobiektu;
+                                        PlayerPrefs.SetFloat("wallet",(float)money);
                                         Vibration.Vibrate(25, 150);
                                         Statystykimebla statystykimebla = zespawowanyobiekt.GetComponent<Statystykimebla>();
                                         statystykimebla.czymebeljestaktywny=true;
@@ -101,6 +109,7 @@ public class hub : MonoBehaviour
                                                 Destroy(zespawowanyobiekt);
                                                 zespawowanyobiekt=null;
                                                 money+=cenaobiektu;
+                                                PlayerPrefs.SetFloat("wallet",(float)money);
                                                 wasitspawned=false;
                                                 break;
                                             }

@@ -40,42 +40,47 @@ public class canvaschanger : MonoBehaviour
     }
     public void upgradebtn()
     {
-      if(Hub.level==1)
+      levelupodczucie();
+        double temp = PlayerPrefs.GetFloat("wallet");
+        int level = PlayerPrefs.GetInt("level");
+      if(level==1)
       {
-        if(Hub.money >= 1000)
+        if(temp >= 1000)
         {
-            Hub.level = 2;
-            Hub.money-=1000;
+            level = 2;
+            temp-=1000;
             levelupodczucie();
         }
       }
-      else if(Hub.level==2)
+      else if(level==2)
       {
-        if(Hub.money >= 10000)
+        if(temp >= 10000)
         {
-            Hub.level =3;
+            level =3;
             levelupodczucie();
-            Hub.money-=10000;
+            temp-=10000;
         }
       }
-      else if(Hub.level==3)
+      else if(level==3)
       {
-        if(Hub.money >= 100000)
+        if(temp >= 100000)
         {
-            Hub.level = 4;
+            level = 4;
             levelupodczucie();
-            Hub.money-=100000;
+            temp-=100000;
         }
       }
-      else if(Hub.level==4)
+      else if(level==4)
       {
-        if(Hub.money >= 1000000)
+        if(temp >= 1000000)
         {
-            Hub.level = 5;
+            level = 5;
             levelupodczucie();
-            Hub.money-=1000000;
+            temp-=1000000;
         }
       }
+      PlayerPrefs.SetFloat("wallet", (float)temp);
+      PlayerPrefs.SetInt("level", level);
     }
     public void switchtoskilltree()
     {

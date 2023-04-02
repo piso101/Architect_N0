@@ -21,20 +21,27 @@ public class BuycurrencyScript : MonoBehaviour
     }
     public void hasclickedtoaddmoney1dolar()
     {
+        double temp;
+        temp=PlayerPrefs.GetFloat("wallet");
         
         //iftransactionisdone
-        Hub.money+=1000;
+        temp+=1000;
+        PlayerPrefs.SetFloat("wallet", (float)temp); 
     }
     public void hasclickedtoaddmoney5dolar()
     {
         //iftransactionisdone
-        Hub.money+=10000;
-        
+        double temp;
+        temp=PlayerPrefs.GetFloat("wallet");
+        temp+=10000;
+        PlayerPrefs.SetFloat("wallet", (float)temp); 
     }
     public void hasclickedtoaddmoney10dolar()
     {
         //iftransactionisdone
-        Hub.money+=500000;
-        
+        double temp;
+        temp=PlayerPrefs.GetFloat("wallet");
+        temp+=100000;
+        PlayerPrefs.SetFloat("wallet", (float)temp); 
     }
 }

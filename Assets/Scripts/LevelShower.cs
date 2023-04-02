@@ -22,7 +22,7 @@ public class LevelShower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int levelshower = Hub.level;
+        int levelshower = PlayerPrefs.GetInt("level");
         if(levelshower == 1)//based on level of a player switches sprites of badges that can be seen on the main screen
         {
         ramkanaodznaki.texture=odznaka1;

@@ -228,7 +228,10 @@ public class gridsnap : MonoBehaviour
     public void usungo()
     {
         
-        Hub.money+=(podniesionyprzedmiot.GetComponent<Statystykimebla>().rzadkoscprzedmiotu)*100;
+                Hub.money+=(podniesionyprzedmiot.GetComponent<Statystykimebla>().rzadkoscprzedmiotu)*100;
+                int temp = PlayerPrefs.GetInt("sumarzadkosciprzedmiotow");
+                temp-=podniesionyprzedmiot.GetComponent<Statystykimebla>().rzadkoscprzedmiotu;
+                PlayerPrefs.SetInt("sumarzadkosciprzedmiotow",temp);
                 Destroy(podniesionyprzedmiot);
                 Hub.przyciskidoruszania=false;
                 czyprzedmiotjestpodniesiony = false;

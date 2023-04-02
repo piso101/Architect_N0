@@ -60,7 +60,9 @@ public class luckywheelcanvasscript : MonoBehaviour
         {
         wheel.GetComponent<WheelScript>().spinwheel();//this gets wheel to spin by calling to a function that rotates it
         wheelbutton.GetComponent<Button>().interactable = false;//turns of a button for a spining time
-        Hub.money -= Hub.level*Hub.level*1000;
+        double temp =PlayerPrefs.GetFloat("wallet");
+        temp-=Hub.level*Hub.level*1000;
+        PlayerPrefs.SetFloat("wallet", (float)temp);
         StartCoroutine(CheckWheelSpinning());
         }
     }
@@ -85,24 +87,25 @@ public class luckywheelcanvasscript : MonoBehaviour
     void CheckPrice()//checks what price has player done
     {
         float angle = wheel.transform.rotation.eulerAngles.z;
+        double temp =PlayerPrefs.GetFloat("wallet");
         // Round the angle to the nearest 45 degrees to determine the prize.
         int prizeIndex = Mathf.RoundToInt(angle / 36.0f) % 310;
         switch (prizeIndex)
         {
             case 0:
-                Hub.money += 300;
+                temp += 300;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = normalprize;
                 prizeinfotext.text = "300$";
                 break;
             case 10://prize 300$
-                Hub.money += 300;
+                temp += 300;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = normalprize;
                 prizeinfotext.text = "300$";
                 break;
             case 1://prize 1000$
-                Hub.money += 1000;
+                temp += 1000;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = normalprize;
                 prizeinfotext.text = "1000$";
@@ -115,7 +118,7 @@ public class luckywheelcanvasscript : MonoBehaviour
                 prizeinfotext.text = "1.5x 60sec";
                 break;
             case 3: // 1000$
-                Hub.money += 1000;
+                temp += 1000;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = normalprize;
                 prizeinfotext.text = "1000$";
@@ -134,7 +137,7 @@ public class luckywheelcanvasscript : MonoBehaviour
                 prizeinfotext.text = "Respin";
                 break;
             case 6://100$
-                Hub.money += 100;
+                temp += 100;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = normalprize;
                 prizeinfotext.text = "100$";
@@ -145,18 +148,19 @@ public class luckywheelcanvasscript : MonoBehaviour
                 prizeinfotext.text = "Limited furniture";
                 break;
             case 8:// 5000$
-                Hub.money += 5000;
+                temp += 5000;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = normalprize;
                 prizeinfotext.text = "5000$";
                 break;
             case 9://2x wallet
-                Hub.money *= 2;
+                temp *= 2;
                 prizeinfo.SetActive(true);
                 prizeinfoimage.GetComponent<Image>().sprite = goodprize;
                 prizeinfotext.text = "2x wallet";
                 break;
         }
+        PlayerPrefs.SetFloat("wallet", (float)temp);
     }
     public void closepriceinfo()
     {
