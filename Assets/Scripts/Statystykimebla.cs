@@ -11,6 +11,7 @@ public class Statystykimebla : MonoBehaviour
     public bool czymebeljestaktywny=true;// values for each furnitrue should be applied only in inspector!!!
     public float sizemultiplyier;
     public Vector3 rotationaplly;
+    public Vector3 positionapply;
     public double time;
     private currencycontroller Currencycontroller;
     void Start() 

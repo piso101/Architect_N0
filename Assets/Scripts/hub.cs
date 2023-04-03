@@ -83,10 +83,11 @@ public class hub : MonoBehaviour
                             {
                                 if(hit.transform.GetComponent<Collider>().tag == "floor")
                                 {
+                                    Statystykimebla statystykimeblaprzedspawnowaniem = obiektdozespawnowania.GetComponent<Statystykimebla>();
                                     if(!wasitspawned)
                                     {
                                         
-                                        zespawowanyobiekt = Instantiate(obiektdozespawnowania, (hit.point+new Vector3(0f,0.8f,0f)), obiektdozespawnowania.transform.rotation);
+                                        zespawowanyobiekt = Instantiate(obiektdozespawnowania, (hit.point+new Vector3(0f,0.8f,0f)+statystykimeblaprzedspawnowaniem.positionapply), obiektdozespawnowania.transform.rotation);
                                         //this has a bug in which object is not spawned and game basicly freeze
                                         wasitspawned=true;
                                         zespawowanyobiekt.tag ="ruszam";
@@ -117,7 +118,7 @@ public class hub : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Vector3 wtomstronke =(hit.point+new Vector3(0f,0.8f,0f));
+                                        Vector3 wtomstronke =(hit.point+new Vector3(0f,0.8f,0f)+statystykimeblaprzedspawnowaniem.positionapply);
                                         Vector3 temp = zespawowanyobiekt.transform.position;
                                         zespawowanyobiekt.transform.position = wtomstronke;
                                         

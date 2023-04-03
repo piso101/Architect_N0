@@ -68,7 +68,7 @@ public class shopgameobjectbtn : MonoBehaviour
         Textoflevel.text=level.ToString();
         Textofobjectname.text=objectname;
         textofvalue.text=value.ToString()+"$";
-        Textofearnings.text=(value/10).ToString()+"$/min";
+        Textofearnings.text=(value).ToString()+"$/min";
     }
     void disableallvalues()
     {
@@ -79,11 +79,13 @@ public class shopgameobjectbtn : MonoBehaviour
     }
     public void takdraguje()//takdraguje(eng.yesdragging)checks if player is dragging the button.
     {
-        
+        if(Hub.money>=value)
+        {        
         Hub.obiekspawnowania = objects;
         Hub.levelporzebny = levelrequired;
         Hub.cenaobiektu = value;
         Hub.spawnujtak = true;
+        }
         
     }
 
