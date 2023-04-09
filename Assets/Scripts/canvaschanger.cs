@@ -84,6 +84,7 @@ public class canvaschanger : MonoBehaviour
     }
     public void switchtoskilltree()
     {
+
         defaultcanvas.SetActive(false);
         skilltree.SetActive(true);
         shopcanvas.SetActive(false);
@@ -93,6 +94,7 @@ public class canvaschanger : MonoBehaviour
     }
     public void switchtodefaultcanvas()
     {
+
         defaultcanvas.SetActive(true);
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
@@ -102,6 +104,7 @@ public class canvaschanger : MonoBehaviour
     }
     public void switchtoshopcanvas()
     {
+
         defaultcanvas.SetActive(false);
         skilltree.SetActive(false);
         shopcanvas.SetActive(true);
@@ -111,6 +114,7 @@ public class canvaschanger : MonoBehaviour
     }
     public void switchtoluckywheel()
     {
+
         defaultcanvas.SetActive(false);
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
@@ -120,6 +124,7 @@ public class canvaschanger : MonoBehaviour
     }
     public void switchtocurrencycanvas()
     {
+
         defaultcanvas.SetActive(false);
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
@@ -129,6 +134,7 @@ public class canvaschanger : MonoBehaviour
     }
     public void switchtoislandchooser()
     {
+
         defaultcanvas.SetActive(false);
         skilltree.SetActive(false);
         shopcanvas.SetActive(false);
