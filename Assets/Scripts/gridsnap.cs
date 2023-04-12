@@ -1,9 +1,11 @@
+using System.Security.AccessControl;
 using System.Net;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RDG;
 using TMPro;
+using System.IO;
 
 public class gridsnap : MonoBehaviour
 {
@@ -164,37 +166,43 @@ public class gridsnap : MonoBehaviour
         }
 
     
-    public void ruszaj(Vector3 wtomstronke)//moves furniture if button is pressed
+    public void ruszaj(Vector3 wtomstronke)
     {
         // Move the object
         podniesionyprzedmiot.transform.position += wtomstronke;
-        podniesionyprzedmiot.tag ="ruszam";
+        podniesionyprzedmiot.tag = "ruszam";
         Vibration.Vibrate(25, 150);
         Statystykimebla statystykimebla = podniesionyprzedmiot.GetComponent<Statystykimebla>();
         // Check for collisions
         Renderer objectRenderer = podniesionyprzedmiot.GetComponent<Renderer>();
-        Vector3 size = (objectRenderer.bounds.size / 2.8f)*statystykimebla.sizemultiplyier;
-        Vector3 center = podniesionyprzedmiot.transform.position;
+        Vector3 size = ((objectRenderer.bounds.size / 2.8f) * statystykimebla.sizemultiplyier) + statystykimebla.scaleapply;
+        Vector3 center = podniesionyprzedmiot.transform.position + statystykimebla.centerapply;
         Quaternion rotation = podniesionyprzedmiot.transform.rotation;
         rotation *= Quaternion.Euler(statystykimebla.rotationaplly);
+        // Modify size based on Y-axis rotation angle
+        float angle = podniesionyprzedmiot.transform.eulerAngles.y;
+        float sin = Mathf.Abs(Mathf.Sin(angle * Mathf.Deg2Rad));
+        float cos = Mathf.Abs(Mathf.Cos(angle * Mathf.Deg2Rad));
+        float xSize = size.x * cos + size.z * sin;
+        float zSize = size.x * sin + size.z * cos;
+        size = new Vector3(xSize, size.y, zSize);
         // OverlapBox that fits into the object's convex shape
-        Collider[] colliders = Physics.OverlapBox(center, size, rotation );
+        Collider[] colliders = Physics.OverlapBox(center, size, rotation);
         foreach (Collider collider in colliders)
         {
             // Check if colliding with wall, furniture, or dirtywall
-            if (collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture") || collider.gameObject.CompareTag("dirtywall")||collider.gameObject.CompareTag("sceneria"))
+            if (collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture") || collider.gameObject.CompareTag("dirtywall") || collider.gameObject.CompareTag("sceneria"))
             {
                 Vibration.Vibrate(100, 100);
                 podniesionyprzedmiot.transform.position -= wtomstronke;
                 break;
             }
         }
-
-        podniesionyprzedmiot.tag ="furniture";
+        podniesionyprzedmiot.tag = "furniture";
     }
 
 
-    public void obracajmnie()//rotates furniture if button is pressed
+    public void obracajmnie()
     {
         //Rotating Object
         Vector3 wtomstronke = new Vector3(0f, 0f, 90f);
@@ -204,31 +212,54 @@ public class gridsnap : MonoBehaviour
         podniesionyprzedmiot.transform.rotation *= rotation;
         podniesionyprzedmiot.tag = "ruszam";
         Vibration.Vibrate(25, 150);
+
         //creating colliderbox
         Statystykimebla statystykimebla = podniesionyprzedmiot.GetComponent<Statystykimebla>();
         Renderer objectRenderer = podniesionyprzedmiot.GetComponent<Renderer>();
-        Vector3 size = (objectRenderer.bounds.size / 2.6f)*statystykimebla.sizemultiplyier;
-        Vector3 center = podniesionyprzedmiot.transform.position;
-        Quaternion rotationcube = podniesionyprzedmiot.transform.rotation;
-        Collider[] colliders = Physics.OverlapBox(center, size, rotationcube );
+
+        // Get the original size and center of the object
+        Vector3 originalSize = objectRenderer.bounds.size;
+        Vector3 originalCenter = objectRenderer.bounds.center;
+
+        // Rotate the size and center based on the object's rotation
+        Quaternion objectRotation = podniesionyprzedmiot.transform.rotation;
+        Vector3 rotatedSize = objectRotation * originalSize;
+        Vector3 rotatedCenter = objectRotation * originalCenter;
+
+        // Scale the size based on the object's scale and size multiplier
+        Vector3 scaledSize = (rotatedSize / 2.6f) * statystykimebla.sizemultiplyier + statystykimebla.scaleapply;
+
+        // Calculate the new center based on the scaled size
+        Vector3 newCenter = podniesionyprzedmiot.transform.position + rotatedCenter + statystykimebla.centerapply;
+
+        // OverlapBox with the new size and center
+        Collider[] colliders = Physics.OverlapBox(newCenter, scaledSize, objectRotation);
+
         foreach (Collider collider in colliders)
         {
             if(collider.gameObject.CompareTag("wall") || collider.gameObject.CompareTag("furniture")||collider.gameObject.CompareTag("dirtywall")||collider.gameObject.CompareTag("sceneria"))
             {
                 Vibration.Vibrate(100, 100);
                 podniesionyprzedmiot.transform.rotation = makapaka.transform.rotation;
-                
             }
         }
         podniesionyprzedmiot.tag = "furniture";
     }
 
-
+    public void usunplikzapisany(GameObject podniesionyprzedmiot)
+    {
+        string pathname = podniesionyprzedmiot.GetComponent<Statystykimebla>().gameobjectstring;
+        string path = Application.persistentDataPath + "/" + pathname + ".furnitrue";
+        File.Delete(path);
+    }
 
     public void usungo()
     {
         
-                Hub.money+=(podniesionyprzedmiot.GetComponent<Statystykimebla>().rzadkoscprzedmiotu)*100;
+                usunplikzapisany(podniesionyprzedmiot);
+                double tempmoney = PlayerPrefs.GetInt("wallet");
+                tempmoney+=(podniesionyprzedmiot.GetComponent<Statystykimebla>().rzadkoscprzedmiotu)*100;
+                PlayerPrefs.SetInt("wallet",(int)tempmoney);
                 int temp = PlayerPrefs.GetInt("sumarzadkosciprzedmiotow");
                 temp-=podniesionyprzedmiot.GetComponent<Statystykimebla>().rzadkoscprzedmiotu;
                 PlayerPrefs.SetInt("sumarzadkosciprzedmiotow",temp);
