@@ -38,7 +38,7 @@ public class Statystykimebla : MonoBehaviour
     }
 
     void Update()
-    {Savingandloadingfurniture.SaveFurnitrue(this);
+    {Savingandloadingfurniture.SaveFurniture(this);
 
 
         position = transform.position;
