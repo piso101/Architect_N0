@@ -1,12 +1,8 @@
-using System.Runtime.CompilerServices;
-using System.ComponentModel;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using RDG;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class hub : MonoBehaviour
 {
@@ -39,36 +35,9 @@ public class hub : MonoBehaviour
     GameObject zespawowanyobiekt;
     public int cenaobiektu;
     public double multiplyer=1;
-
-    void load()
-        {
-        string[] files = Directory.GetFiles(Application.persistentDataPath, "*.furniture");
-
-                foreach (string file in files)
-                {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    FileStream stream = new FileStream(file, FileMode.Open);
-                    Classforsavingdatafurnitures data = formatter.Deserialize(stream) as Classforsavingdatafurnitures;
-                    stream.Close();
-
-                    // Create game object from prefab
-                    GameObject prefab = Resources.Load<GameObject>(data.nameofprefab);
-                    if (prefab != null)
-                    {
-                        GameObject obj = Instantiate(prefab, new Vector3(data.position[0], data.position[1], data.position[2]), Quaternion.Euler(data.rotation[0], data.rotation[1], data.rotation[2]));
-                        obj.name = data.nameofobject;
-                        // You can customize the instantiated game object further, such as setting its properties or adding components
-                    }
-                    else
-                    {
-                       Vibration.Vibrate(25, 150);
-                    }
-                }
-
-        }
+    
     void Start()
     {
-        load();
         GameObject obj = GameObject.Find("Menager");
         Canvaschanger = obj.GetComponent<canvaschanger>();
     }
@@ -105,11 +74,9 @@ public class hub : MonoBehaviour
             {
                 if(level>=levelrequired)
                 {
-                    Canvaschanger.switchtodefaultcanvas();
                         if(Input.touchCount==1)
                         {
-                            
-                            
+                            Canvaschanger.switchtodefaultcanvas();
                             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                             RaycastHit hit;
                             if(Physics.Raycast(ray, out hit))
@@ -181,7 +148,6 @@ public class hub : MonoBehaviour
                         }
                         else if (Input.touchCount<1)
                         {
-                            
                             zespawowanyobiekt.tag ="furniture";
                             zespawowanyobiekt=null;
                             zespawnuj=false;

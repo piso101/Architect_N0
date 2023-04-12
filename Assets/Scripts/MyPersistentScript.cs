@@ -1,5 +1,7 @@
+
+
+
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MyPersistentScript : MonoBehaviour
 {
@@ -14,10 +16,6 @@ public class MyPersistentScript : MonoBehaviour
             PlayerPrefs.SetFloat("wallet", 0);
             PlayerPrefs.SetInt("level", 1);
             PlayerPrefs.SetInt("hasloaded", 1);
-
-
-
-            
             isInitialized = true;
         }
     }
