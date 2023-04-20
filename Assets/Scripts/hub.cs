@@ -39,10 +39,11 @@ public class hub : MonoBehaviour
     GameObject zespawowanyobiekt;
     public int cenaobiektu;
     public double multiplyer=1;
+    public GameObject[] prefabs;
 
     void load()
         {
-        string[] files = Directory.GetFiles(Application.persistentDataPath, "*.furniture");
+        string[] files = Directory.GetFiles(Application.persistentDataPath + "*.furniture");
 
                 foreach (string file in files)
                 {
@@ -50,21 +51,16 @@ public class hub : MonoBehaviour
                     FileStream stream = new FileStream(file, FileMode.Open);
                     Classforsavingdatafurnitures data = formatter.Deserialize(stream) as Classforsavingdatafurnitures;
                     stream.Close();
-
-                    // Create game object from prefab
-                    GameObject prefab = Resources.Load<GameObject>(data.nameofprefab);
-                    if (prefab != null)
+                    foreach(GameObject prefabs in prefabs)
                     {
-                        GameObject obj = Instantiate(prefab, new Vector3(data.position[0], data.position[1], data.position[2]), Quaternion.Euler(data.rotation[0], data.rotation[1], data.rotation[2]));
+                        Vibration.Vibrate(25, 150);
+                        if(prefabs.name == data.nameofprefab){
+                        GameObject obj = Instantiate(prefabs, new Vector3(data.position[0], data.position[1], data.position[2]), Quaternion.Euler(data.rotation[0], data.rotation[1], data.rotation[2]));
                         obj.name = data.nameofobject;
-                        // You can customize the instantiated game object further, such as setting its properties or adding components
-                    }
-                    else
-                    {
-                       Vibration.Vibrate(25, 150);
+                        break;
+                        }
                     }
                 }
-
         }
     void Start()
     {

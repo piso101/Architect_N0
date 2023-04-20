@@ -38,12 +38,10 @@ public class Statystykimebla : MonoBehaviour
     }
 
     void Update()
-    {Savingandloadingfurniture.SaveFurniture(this);
-
-
+    {
         position = transform.position;
         rotation = transform.rotation.eulerAngles;
-
+        Savingandloadingfurniture.SaveFurniture(this);
         if (Hub.multiplyer > 1)
         {
             if (time < 60)

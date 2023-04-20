@@ -10,7 +10,7 @@ public class Savingandloadingfurniture
     {
         string pathname = statystykimebla.gameobjectstring;
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/" + pathname + ".furniture";
+        string path = Application.persistentDataPath + pathname + "*.furniture";
         FileStream stream = new FileStream(path, FileMode.Create);
         Classforsavingdatafurnitures data = new Classforsavingdatafurnitures(statystykimebla);
         formatter.Serialize(stream, data);
@@ -19,7 +19,7 @@ public class Savingandloadingfurniture
     public static Classforsavingdatafurnitures LoadFurniture(Statystykimebla statystykimebla)
     {
         string pathname = statystykimebla.gameobjectstring;
-        string path = Application.persistentDataPath + "/" + pathname + ".furniture";
+        string path = Application.persistentDataPath + pathname + "*.furniture";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
